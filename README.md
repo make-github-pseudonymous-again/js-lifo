@@ -1,7 +1,7 @@
 [js-lifo](http://aureooms.github.io/js-lifo)
 ==
 
-Last In First Out abstract data types code bricks for JavaScript
+_**L**ast **I**n, **F**irst **O**ut_ abstract data types code bricks for JavaScript.
 
 [![NPM license](http://img.shields.io/npm/l/aureooms-js-lifo.svg?style=flat)](https://raw.githubusercontent.com/aureooms/js-lifo/master/LICENSE)
 [![NPM version](http://img.shields.io/npm/v/aureooms-js-lifo.svg?style=flat)](https://www.npmjs.org/package/aureooms-js-lifo)
