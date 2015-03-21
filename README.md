@@ -17,7 +17,7 @@ Last In First Out abstract data types code bricks for JavaScript
 
 ```js
 
-// Stack implementation based on a list of nodes
+// Stack implementation based on a list of nodes.
 let stack = new lifo.NodeStack( ) ;
 
 stack.empty( ) ; // true
@@ -34,9 +34,10 @@ stack.empty( ) ; // true
 
 ```js
 
-// Stack implementation based on a fixed size array
-// ( 10 is the maximum number of elements the stack can handle )
-let array = new Float64Array( 10 ) ;
+// Stack implementation based on a fixed size array.
+// `n` is the maximum number of elements the stack can handle.
+let n = 10 ;
+let array = new Float64Array( n ) ;
 let stack = new lifo.ArrayStack( array ) ;
 
 stack.empty( ) ; // true
