@@ -41,3 +41,4 @@ var n = 10000 ;
 
 t( "NodeStack" , new lifo.NodeStack( ) , n ) ;
 t( "ArrayStack" , new lifo.ArrayStack( new Array( n ) ) , n ) ;
+t( "ArrayStack" , new lifo.ArrayStack( new Float64Array( n ) ) , n ) ;
