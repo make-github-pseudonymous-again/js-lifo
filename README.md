@@ -16,6 +16,10 @@ _**L**ast **I**n, **F**irst **O**ut_ abstract data types code bricks for JavaScr
 
 
 ```js
+let lifo = require( "aureooms-js-lifo" ) ;
+```
+
+```js
 
 // Stack implementation based on a list of nodes.
 let stack = new lifo.NodeStack( ) ;
