@@ -1,5 +1,5 @@
 <!DOCTYPE html><html lang="en"><head><title>index</title></head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"><meta name="groc-relative-root" content=""><meta name="groc-document-path" content="index"><meta name="groc-project-path" content="README.md"><meta name="groc-github-url" content="https://github.com/aureooms/js-lifo"><link rel="stylesheet" type="text/css" media="all" href="assets/style.css"><script type="text/javascript" src="assets/behavior.js"></script><body><div id="meta"><div class="file-path"><a href="https://github.com/aureooms/js-lifo/blob/master/README.md">README.md</a></div></div><div id="document"><div class="segment"><div class="comments "><div class="wrapper"><h1 id="-js-lifo-http-aureooms-github-io-js-lifo-"><a href="http://aureooms.github.io/js-lifo">js-lifo</a></h1>
-<p>Last In First Out abstract data types code bricks for JavaScript</p>
+<p><em><strong>L</strong>ast <strong>I</strong>n, <strong>F</strong>irst <strong>O</strong>ut</em> abstract data types code bricks for JavaScript.</p>
 <p><a href="https://raw.githubusercontent.com/aureooms/js-lifo/master/LICENSE"><img src="http://img.shields.io/npm/l/aureooms-js-lifo.svg?style=flat" alt="NPM license"></a>
 <a href="https://www.npmjs.org/package/aureooms-js-lifo"><img src="http://img.shields.io/npm/v/aureooms-js-lifo.svg?style=flat" alt="NPM version"></a>
 <a href="http://bower.io/search/?q=aureooms-js-lifo"><img src="http://img.shields.io/bower/v/aureooms-js-lifo.svg?style=flat" alt="Bower version"></a>
@@ -10,8 +10,9 @@
 <a href="https://codeclimate.com/github/aureooms/js-lifo"><img src="http://img.shields.io/codeclimate/github/aureooms/js-lifo.svg?style=flat" alt="Code Climate"></a>
 <a href="https://www.npmjs.org/package/aureooms-js-lifo"><img src="http://img.shields.io/npm/dm/aureooms-js-lifo.svg?style=flat" alt="NPM downloads per month"></a>
 <a href="https://github.com/aureooms/js-lifo/issues"><img src="http://img.shields.io/github/issues/aureooms/js-lifo.svg?style=flat" alt="GitHub issues"></a></p>
+<pre><code class="lang-js"><span class="hljs-keyword">let</span> lifo = <span class="hljs-built_in">require</span>( <span class="hljs-string">"aureooms-js-lifo"</span> ) ;</code></pre>
 <pre><code class="lang-js">
-<span class="hljs-comment">// Stack implementation based on a list of nodes</span>
+<span class="hljs-comment">// Stack implementation based on a list of nodes.</span>
 <span class="hljs-keyword">let</span> stack = <span class="hljs-keyword">new</span> lifo.NodeStack( ) ;
 
 stack.empty( ) ; <span class="hljs-comment">// true</span>
@@ -24,9 +25,10 @@ stack.pop( ) ; <span class="hljs-comment">// 3</span>
 stack.pop( ) ; <span class="hljs-comment">// 18</span>
 stack.empty( ) ; <span class="hljs-comment">// true</span></code></pre>
 <pre><code class="lang-js">
-<span class="hljs-comment">// Stack implementation based on a fixed size array</span>
-<span class="hljs-comment">// ( 10 is the maximum number of elements the stack can handle )</span>
-<span class="hljs-keyword">let</span> array = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Float64Array</span>( <span class="hljs-number">10</span> ) ;
+<span class="hljs-comment">// Stack implementation based on a fixed size array.</span>
+<span class="hljs-comment">// `n` is the maximum number of elements the stack can handle.</span>
+<span class="hljs-keyword">let</span> n = <span class="hljs-number">10</span> ;
+<span class="hljs-keyword">let</span> array = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Float64Array</span>( n ) ;
 <span class="hljs-keyword">let</span> stack = <span class="hljs-keyword">new</span> lifo.ArrayStack( array ) ;
 
 stack.empty( ) ; <span class="hljs-comment">// true</span>
