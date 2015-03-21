@@ -9,4 +9,32 @@
 <a href="https://david-dm.org/aureooms/js-lifo#info=devDependencies"><img src="http://img.shields.io/david/dev/aureooms/js-lifo.svg?style=flat" alt="devDependencies Status"></a>
 <a href="https://codeclimate.com/github/aureooms/js-lifo"><img src="http://img.shields.io/codeclimate/github/aureooms/js-lifo.svg?style=flat" alt="Code Climate"></a>
 <a href="https://www.npmjs.org/package/aureooms-js-lifo"><img src="http://img.shields.io/npm/dm/aureooms-js-lifo.svg?style=flat" alt="NPM downloads per month"></a>
-<a href="https://github.com/aureooms/js-lifo/issues"><img src="http://img.shields.io/github/issues/aureooms/js-lifo.svg?style=flat" alt="GitHub issues"></a></p></div></div></div></div></body></html>
+<a href="https://github.com/aureooms/js-lifo/issues"><img src="http://img.shields.io/github/issues/aureooms/js-lifo.svg?style=flat" alt="GitHub issues"></a></p>
+<pre><code class="lang-js">
+<span class="hljs-comment">// Stack implementation based on a list of nodes</span>
+<span class="hljs-keyword">let</span> stack = <span class="hljs-keyword">new</span> lifo.NodeStack( ) ;
+
+stack.empty( ) ; <span class="hljs-comment">// true</span>
+stack.push( <span class="hljs-number">18</span> ) ;
+stack.empty( ) ; <span class="hljs-comment">// false</span>
+stack.peek( ) ; <span class="hljs-comment">// 18</span>
+stack.push( <span class="hljs-number">3</span> ) ;
+stack.peek( ) ; <span class="hljs-comment">// 3</span>
+stack.pop( ) ; <span class="hljs-comment">// 3</span>
+stack.pop( ) ; <span class="hljs-comment">// 18</span>
+stack.empty( ) ; <span class="hljs-comment">// true</span></code></pre>
+<pre><code class="lang-js">
+<span class="hljs-comment">// Stack implementation based on a fixed size array</span>
+<span class="hljs-comment">// ( 10 is the maximum number of elements the stack can handle )</span>
+<span class="hljs-keyword">let</span> array = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Float64Array</span>( <span class="hljs-number">10</span> ) ;
+<span class="hljs-keyword">let</span> stack = <span class="hljs-keyword">new</span> lifo.ArrayStack( array ) ;
+
+stack.empty( ) ; <span class="hljs-comment">// true</span>
+stack.push( <span class="hljs-built_in">Math</span>.PI ) ;
+stack.empty( ) ; <span class="hljs-comment">// false</span>
+stack.peek( ) ; <span class="hljs-comment">// 3.141592653589793</span>
+stack.push( <span class="hljs-built_in">Math</span>.E ) ;
+stack.peek( ) ; <span class="hljs-comment">// 2.718281828459045</span>
+stack.pop( ) ; <span class="hljs-comment">// 2.718281828459045</span>
+stack.pop( ) ; <span class="hljs-comment">// 3.141592653589793</span>
+stack.empty( ) ; <span class="hljs-comment">// true</span></code></pre></div></div></div></div></body></html>
