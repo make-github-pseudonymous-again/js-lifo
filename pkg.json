@@ -1,0 +1,17 @@
+{
+	"debug": false,
+	"out": "js/dist/",
+	"code": {
+		"test": [
+			"test",
+			"js"
+		],
+		"main": [
+			"js",
+			"dist",
+			"lifo.js"
+		]
+	},
+	"name": "lifo",
+	"src": "js/src/"
+}

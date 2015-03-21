@@ -1,0 +1,19 @@
+{
+	"homepage": "http://aureooms.github.io/js-lifo/",
+	"description": "Last In First Out abstract data types code bricks for JavaScript",
+	"main": "js/dist/lifo.js",
+	"ignore": [
+		"js/index.js",
+		"js/src",
+		"test",
+		"pkg.json",
+		"package.json",
+		".groc.json",
+		".travis.yml",
+		".gitignore",
+		"README.md"
+	],
+	"name": "aureooms-js-lifo",
+	"version": "0.0.0",
+	"license": "AGPL-3.0"
+}

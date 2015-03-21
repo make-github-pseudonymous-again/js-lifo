@@ -1,0 +1,11 @@
+{
+	"repo": "aureooms/js-lifo",
+	"name": "aureooms-js-lifo",
+	"main": "js/dist/lifo.js",
+	"scripts": [
+		"js/dist/lifo.js"
+	],
+	"description": "Last In First Out abstract data types code bricks for JavaScript",
+	"version": "0.0.0",
+	"license": "AGPL-3.0"
+}
