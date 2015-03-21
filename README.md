@@ -13,3 +13,40 @@ Last In First Out abstract data types code bricks for JavaScript
 [![Code Climate](http://img.shields.io/codeclimate/github/aureooms/js-lifo.svg?style=flat)](https://codeclimate.com/github/aureooms/js-lifo)
 [![NPM downloads per month](http://img.shields.io/npm/dm/aureooms-js-lifo.svg?style=flat)](https://www.npmjs.org/package/aureooms-js-lifo)
 [![GitHub issues](http://img.shields.io/github/issues/aureooms/js-lifo.svg?style=flat)](https://github.com/aureooms/js-lifo/issues)
+
+
+```js
+
+// Stack implementation based on a list of nodes
+let stack = new lifo.NodeStack( ) ;
+
+stack.empty( ) ; // true
+stack.push( 18 ) ;
+stack.empty( ) ; // false
+stack.peek( ) ; // 18
+stack.push( 3 ) ;
+stack.peek( ) ; // 3
+stack.pop( ) ; // 3
+stack.pop( ) ; // 18
+stack.empty( ) ; // true
+
+```
+
+```js
+
+// Stack implementation based on a fixed size array
+// ( 10 is the maximum number of elements the stack can handle )
+let array = new Float64Array( 10 ) ;
+let stack = new lifo.ArrayStack( array ) ;
+
+stack.empty( ) ; // true
+stack.push( Math.PI ) ;
+stack.empty( ) ; // false
+stack.peek( ) ; // 3.141592653589793
+stack.push( Math.E ) ;
+stack.peek( ) ; // 2.718281828459045
+stack.pop( ) ; // 2.718281828459045
+stack.pop( ) ; // 3.141592653589793
+stack.empty( ) ; // true
+
+```
