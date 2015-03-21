@@ -1,7 +1,7 @@
 [js-lifo](http://aureooms.github.io/js-lifo)
 ==
 
-Last In First Out abstract data types code bricks for JavaScript
+_**L**ast **I**n, **F**irst **O**ut_ abstract data types code bricks for JavaScript.
 
 [![NPM license](http://img.shields.io/npm/l/aureooms-js-lifo.svg?style=flat)](https://raw.githubusercontent.com/aureooms/js-lifo/master/LICENSE)
 [![NPM version](http://img.shields.io/npm/v/aureooms-js-lifo.svg?style=flat)](https://www.npmjs.org/package/aureooms-js-lifo)
@@ -17,7 +17,7 @@ Last In First Out abstract data types code bricks for JavaScript
 
 ```js
 
-// Stack implementation based on a list of nodes
+// Stack implementation based on a list of nodes.
 let stack = new lifo.NodeStack( ) ;
 
 stack.empty( ) ; // true
@@ -34,9 +34,10 @@ stack.empty( ) ; // true
 
 ```js
 
-// Stack implementation based on a fixed size array
-// ( 10 is the maximum number of elements the stack can handle )
-let array = new Float64Array( 10 ) ;
+// Stack implementation based on a fixed size array.
+// `n` is the maximum number of elements the stack can handle.
+let n = 10 ;
+let array = new Float64Array( n ) ;
 let stack = new lifo.ArrayStack( array ) ;
 
 stack.empty( ) ; // true
