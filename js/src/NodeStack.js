@@ -1,15 +1,13 @@
 
 var NodeStack = function ( ) {
 
-	this.bottom = new Node( undefined , null ) ;
-
-	this.top = this.bottom ;
+	this.top = null ;
 
 } ;
 
 NodeStack.prototype.empty = function ( ) {
 
-	return this.top === this.bottom ;
+	return this.top === null ;
 
 } ;
 
