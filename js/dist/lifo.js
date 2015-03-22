@@ -8,6 +8,7 @@
 /**
  * ArrayStack#peek only valid if ArrayStack#empty is false.
  * ArrayStack#pop only valid if ArrayStack#empty is false.
+ * ArrayStack#push only valid if the storage array is not full.
  */
 
 var ArrayStack = function ( array ) {
