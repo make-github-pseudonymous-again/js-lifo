@@ -1,33 +1,33 @@
 {
-  "scripts": {
-    "test": "./node_modules/.bin/aureooms-node-package-test",
-    "build": "./node_modules/.bin/aureooms-node-package-build",
-    "doc": "./node_modules/.bin/groc"
-  },
-  "repository": {
-    "url": "https://github.com/aureooms/js-lifo.git",
-    "type": "git"
-  },
-  "dependencies": {},
-  "keywords": [
-    "bricks",
-    "javascript",
-    "js",
-    "lifo",
-    "stack"
-  ],
-  "version": "2.1.0",
-  "license": "AGPL-3.0",
-  "homepage": "http://aureooms.github.io/js-lifo/",
-  "bugs": {
-    "url": "https://github.com/aureooms/js-lifo/issues"
-  },
-  "name": "aureooms-js-lifo",
-  "main": "js/dist/lifo.js",
-  "description": "Last In First Out abstract data types code bricks for JavaScript",
-  "devDependencies": {
-    "aureooms-js-array": "^2.0.2",
-    "aureooms-node-package": "^2.0.3"
-  },
-  "author": "aureooms"
+	"scripts": {
+		"test": "./node_modules/.bin/aureooms-node-package-test",
+		"build": "./node_modules/.bin/aureooms-node-package-build",
+		"doc": "./node_modules/.bin/groc"
+	},
+	"repository": {
+		"url": "https://github.com/aureooms/js-lifo.git",
+		"type": "git"
+	},
+	"dependencies": {},
+	"keywords": [
+		"bricks",
+		"javascript",
+		"js",
+		"lifo",
+		"stack"
+	],
+	"version": "2.2.0",
+	"license": "AGPL-3.0",
+	"homepage": "http://aureooms.github.io/js-lifo/",
+	"bugs": {
+		"url": "https://github.com/aureooms/js-lifo/issues"
+	},
+	"name": "aureooms-js-lifo",
+	"main": "js/dist/lifo.js",
+	"description": "Last In First Out abstract data types code bricks for JavaScript",
+	"devDependencies": {
+		"aureooms-js-array": "^2.0.2",
+		"aureooms-node-package": "^2.0.3"
+	},
+	"author": "aureooms"
 }
