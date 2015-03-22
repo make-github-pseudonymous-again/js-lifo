@@ -37,8 +37,10 @@ var t = function ( name , stack , n ) {
 
 } ;
 
-var n = 10000 ;
+var n = 2500 ;
 
 t( "NodeStack" , new lifo.NodeStack( ) , n ) ;
-t( "ArrayStack" , new lifo.ArrayStack( new Array( n ) ) , n ) ;
-t( "ArrayStack" , new lifo.ArrayStack( new Float64Array( n ) ) , n ) ;
+t( "ArrayStack ( Array )" , new lifo.ArrayStack( new Array( n ) ) , n ) ;
+t( "ArrayStack ( Float64Array )" , new lifo.ArrayStack( new Float64Array( n ) ) , n ) ;
+t( "JSArrayPrototypeStack" , new lifo.JSArrayPrototypeStack( ) , n ) ;
+t( "JSArrayWrapperStack" , new lifo.JSArrayWrapperStack( [ ] ) , n ) ;
