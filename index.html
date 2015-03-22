@@ -10,9 +10,30 @@
 <a href="https://codeclimate.com/github/aureooms/js-lifo"><img src="http://img.shields.io/codeclimate/github/aureooms/js-lifo.svg?style=flat" alt="Code Climate"></a>
 <a href="https://www.npmjs.org/package/aureooms-js-lifo"><img src="http://img.shields.io/npm/dm/aureooms-js-lifo.svg?style=flat" alt="NPM downloads per month"></a>
 <a href="https://github.com/aureooms/js-lifo/issues"><img src="http://img.shields.io/github/issues/aureooms/js-lifo.svg?style=flat" alt="GitHub issues"></a></p>
+<p>Can be managed through <a href="https://github.com/bower/bower">bower</a>,
+<a href="https://github.com/componentjs/component">component</a>, or
+<a href="https://github.com/npm/npm">npm</a>.</p>
 <pre><code class="lang-js"><span class="hljs-keyword">let</span> lifo = <span class="hljs-built_in">require</span>( <span class="hljs-string">"aureooms-js-lifo"</span> ) ;</code></pre>
-<pre><code class="lang-js">
-<span class="hljs-comment">// Stack implementation based on a list of nodes.</span>
+<p>All data structures implemented in this package follow the following interface,</p>
+<pre><code class="lang-js"><span class="hljs-keyword">let</span> stack = <span class="hljs-keyword">new</span> lifo. ... ( ... ) ;
+
+stack.empty( ) ; <span class="hljs-comment">// returns true if stack is empty, false otherwise</span>
+stack.peek( ) ; <span class="hljs-comment">// returns the value stored at the top of the stack*</span>
+stack.push( value ) ; <span class="hljs-comment">// pushes a value at the top of the stack^</span>
+stack.pop( ) ; <span class="hljs-comment">// removes and returns the value at the top of the stack*</span>
+
+<span class="hljs-comment">//*Calls to the two methods #peek and #pop are valid only if calling #empty</span>
+<span class="hljs-comment">// would return false.  Nothing is done to prevent misuse of these two methods,</span>
+<span class="hljs-comment">// i.e. these errors must be prevented and handled by the caller.</span>
+
+<span class="hljs-comment">//^Specific conditions can apply for specific implementations. For example,</span>
+<span class="hljs-comment">// an instance of the ArrayStack class can handle at most `n` elements, where</span>
+<span class="hljs-comment">// `n` is the size of the allocated array. In other words, calls to #push are</span>
+<span class="hljs-comment">// valid only if the number of elements on the stack is strictly less than `n`.</span>
+<span class="hljs-comment">// Again, the caller is responsible for preventing and handling errors.</span></code></pre>
+<p>Below are some examples illustrating usage of the data structures implemented
+in this package,</p>
+<pre><code class="lang-js"><span class="hljs-comment">// Stack implementation based on a list of nodes.</span>
 <span class="hljs-keyword">let</span> stack = <span class="hljs-keyword">new</span> lifo.NodeStack( ) ;
 
 stack.empty( ) ; <span class="hljs-comment">// true</span>
@@ -24,8 +45,7 @@ stack.peek( ) ; <span class="hljs-comment">// 3</span>
 stack.pop( ) ; <span class="hljs-comment">// 3</span>
 stack.pop( ) ; <span class="hljs-comment">// 18</span>
 stack.empty( ) ; <span class="hljs-comment">// true</span></code></pre>
-<pre><code class="lang-js">
-<span class="hljs-comment">// Stack implementation based on a fixed size array.</span>
+<pre><code class="lang-js"><span class="hljs-comment">// Stack implementation based on a fixed size array.</span>
 <span class="hljs-comment">// `n` is the maximum number of elements the stack can handle.</span>
 <span class="hljs-keyword">let</span> n = <span class="hljs-number">10</span> ;
 <span class="hljs-keyword">let</span> array = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Float64Array</span>( n ) ;
