@@ -39,8 +39,11 @@ var t = function ( name , stack , n ) {
 
 var n = 2500 ;
 
+var array = require( "aureooms-js-array" ) ;
+
 t( "NodeStack" , new lifo.NodeStack( ) , n ) ;
 t( "ArrayStack ( Array )" , new lifo.ArrayStack( new Array( n ) ) , n ) ;
 t( "ArrayStack ( Float64Array )" , new lifo.ArrayStack( new Float64Array( n ) ) , n ) ;
 t( "JSArrayPrototypeStack" , new lifo.JSArrayPrototypeStack( ) , n ) ;
 t( "JSArrayWrapperStack" , new lifo.JSArrayWrapperStack( [ ] ) , n ) ;
+t( "DynamicStack" , new lifo.DynamicStack( [ ] , 0 , 2 , array.realloc ) , n ) ;
