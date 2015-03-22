@@ -1,4 +1,9 @@
 
+/**
+ * ArrayStack#peek only valid if ArrayStack#empty is false.
+ * ArrayStack#pop only valid if ArrayStack#empty is false.
+ */
+
 var ArrayStack = function ( array ) {
 
 	this.array = array ;
@@ -13,11 +18,19 @@ ArrayStack.prototype.empty = function ( ) {
 
 } ;
 
+/**
+ * Only valid if ArrayStack#empty is false.
+ */
+
 ArrayStack.prototype.peek = function ( ) {
 
 	return this.array[this.top] ;
 
 } ;
+
+/**
+ * Only valid if the storage array is not full.
+ */
 
 ArrayStack.prototype.push = function ( value ) {
 

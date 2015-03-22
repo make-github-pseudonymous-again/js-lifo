@@ -14,13 +14,39 @@ _**L**ast **I**n, **F**irst **O**ut_ abstract data types code bricks for JavaScr
 [![NPM downloads per month](http://img.shields.io/npm/dm/aureooms-js-lifo.svg?style=flat)](https://www.npmjs.org/package/aureooms-js-lifo)
 [![GitHub issues](http://img.shields.io/github/issues/aureooms/js-lifo.svg?style=flat)](https://github.com/aureooms/js-lifo/issues)
 
+Can be managed through [bower](https://github.com/bower/bower),
+[component](https://github.com/componentjs/component), or
+[npm](https://github.com/npm/npm).
 
 ```js
 let lifo = require( "aureooms-js-lifo" ) ;
 ```
 
-```js
+All data structures implemented in this package follow the following interface,
 
+```js
+let stack = new lifo. ... ( ... ) ;
+
+stack.empty( ) ; // returns true if stack is empty, false otherwise
+stack.peek( ) ; // returns the value stored at the top of the stack*
+stack.push( value ) ; // pushes a value at the top of the stack^
+stack.pop( ) ; // removes and returns the value at the top of the stack*
+
+//*Calls to the two methods #peek and #pop are valid only if calling #empty
+// would return false.  Nothing is done to prevent misuse of these two methods,
+// i.e. these errors must be prevented and handled by the caller.
+
+//^Specific conditions can apply for specific implementations. For example,
+// an instance of the ArrayStack class can handle at most `n` elements, where
+// `n` is the size of the allocated array. In other words, calls to #push are
+// valid only if the number of elements on the stack is strictly less than `n`.
+// Again, the caller is responsible for preventing and handling errors.
+```
+
+Below are some examples illustrating usage of the data structures implemented
+in this package,
+
+```js
 // Stack implementation based on a list of nodes.
 let stack = new lifo.NodeStack( ) ;
 
@@ -33,11 +59,9 @@ stack.peek( ) ; // 3
 stack.pop( ) ; // 3
 stack.pop( ) ; // 18
 stack.empty( ) ; // true
-
 ```
 
 ```js
-
 // Stack implementation based on a fixed size array.
 // `n` is the maximum number of elements the stack can handle.
 let n = 10 ;
@@ -53,5 +77,4 @@ stack.peek( ) ; // 2.718281828459045
 stack.pop( ) ; // 2.718281828459045
 stack.pop( ) ; // 3.141592653589793
 stack.empty( ) ; // true
-
 ```

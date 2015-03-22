@@ -1,4 +1,9 @@
 
+/**
+ * NodeStack#peek only valid if NodeStack#empty is false.
+ * NodeStack#pop only valid if NodeStack#empty is false.
+ */
+
 var NodeStack = function ( ) {
 
 	this.top = null ;
@@ -10,6 +15,10 @@ NodeStack.prototype.empty = function ( ) {
 	return this.top === null ;
 
 } ;
+
+/**
+ * Only valid if NodeStack#empty is false.
+ */
 
 NodeStack.prototype.peek = function ( ) {
 

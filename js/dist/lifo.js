@@ -5,6 +5,11 @@
 
 /* js/src/ArrayStack.js */
 
+/**
+ * ArrayStack#peek only valid if ArrayStack#empty is false.
+ * ArrayStack#pop only valid if ArrayStack#empty is false.
+ */
+
 var ArrayStack = function ( array ) {
 
 	this.array = array ;
@@ -19,11 +24,19 @@ ArrayStack.prototype.empty = function ( ) {
 
 } ;
 
+/**
+ * Only valid if ArrayStack#empty is false.
+ */
+
 ArrayStack.prototype.peek = function ( ) {
 
 	return this.array[this.top] ;
 
 } ;
+
+/**
+ * Only valid if the storage array is not full.
+ */
 
 ArrayStack.prototype.push = function ( value ) {
 
@@ -67,6 +80,11 @@ exports.Node = Node ;
 
 /* js/src/NodeStack.js */
 
+/**
+ * NodeStack#peek only valid if NodeStack#empty is false.
+ * NodeStack#pop only valid if NodeStack#empty is false.
+ */
+
 var NodeStack = function ( ) {
 
 	this.top = null ;
@@ -78,6 +96,10 @@ NodeStack.prototype.empty = function ( ) {
 	return this.top === null ;
 
 } ;
+
+/**
+ * Only valid if NodeStack#empty is false.
+ */
 
 NodeStack.prototype.peek = function ( ) {
 
