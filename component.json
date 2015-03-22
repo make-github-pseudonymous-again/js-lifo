@@ -6,6 +6,6 @@
 		"js/dist/lifo.js"
 	],
 	"description": "Last In First Out abstract data types code bricks for JavaScript",
-	"version": "2.0.1",
+	"version": "2.0.2",
 	"license": "AGPL-3.0"
 }
