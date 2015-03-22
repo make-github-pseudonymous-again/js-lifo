@@ -53,6 +53,46 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
           "foldPrefix": "^",
           "name": "JavaScript"
         },
+        "sourcePath": "/home/aureooms/dev/js/js-lifo/js/src/JSArrayPrototypeStack.js",
+        "projectPath": "js/src/JSArrayPrototypeStack.js",
+        "targetPath": "JSArrayPrototypeStack",
+        "pageTitle": "JSArrayPrototypeStack",
+        "title": "JSArrayPrototypeStack"
+      },
+      "depth": 1,
+      "outline": []
+    }, {
+      "type": "file",
+      "data": {
+        "language": {
+          "nameMatchers": [".js"],
+          "pygmentsLexer": "javascript",
+          "multiLineComment": ["/*", "*", "*/"],
+          "singleLineComment": ["//"],
+          "ignorePrefix": "}",
+          "foldPrefix": "^",
+          "name": "JavaScript"
+        },
+        "sourcePath": "/home/aureooms/dev/js/js-lifo/js/src/JSArrayWrapperStack.js",
+        "projectPath": "js/src/JSArrayWrapperStack.js",
+        "targetPath": "JSArrayWrapperStack",
+        "pageTitle": "JSArrayWrapperStack",
+        "title": "JSArrayWrapperStack"
+      },
+      "depth": 1,
+      "outline": []
+    }, {
+      "type": "file",
+      "data": {
+        "language": {
+          "nameMatchers": [".js"],
+          "pygmentsLexer": "javascript",
+          "multiLineComment": ["/*", "*", "*/"],
+          "singleLineComment": ["//"],
+          "ignorePrefix": "}",
+          "foldPrefix": "^",
+          "name": "JavaScript"
+        },
         "sourcePath": "/home/aureooms/dev/js/js-lifo/js/src/Node.js",
         "projectPath": "js/src/Node.js",
         "targetPath": "Node",
