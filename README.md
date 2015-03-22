@@ -78,3 +78,5 @@ stack.pop( ) ; // 2.718281828459045
 stack.pop( ) ; // 3.141592653589793
 stack.empty( ) ; // true
 ```
+
+Other examples can be found in *test/js/src/base.js*.
