@@ -25,7 +25,9 @@ Can be managed through [duo](https://github.com/duojs/duo),
 let lifo = require( "aureooms-js-lifo" ) ;
 ```
 
-All data structures implemented in this package follow the following interface,
+## Use
+
+All data structures implemented in this package follow the following interface.
 
 ```js
 let stack = new lifo. ... ( ... ) ;
@@ -47,7 +49,7 @@ stack.pop( ) ; // removes and returns the value at the top of the stack*
 ```
 
 Below are some examples illustrating usage of the data structures implemented
-in this package,
+in this package.
 
 ```js
 // Stack implementation based on a list of nodes.
@@ -82,4 +84,4 @@ stack.pop( ) ; // 3.141592653589793
 stack.empty( ) ; // true
 ```
 
-Other examples can be found in *test/js/src/base.js*.
+Other examples can be found in **test/js/src/base.js**.
