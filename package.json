@@ -26,8 +26,8 @@
 	"main": "js/dist/lifo.js",
 	"description": "Last In First Out abstract data types code bricks for JavaScript",
 	"devDependencies": {
-		"aureooms-js-array": "^2.0.2",
-		"aureooms-node-package": "^2.0.3"
+		"aureooms-js-array": "^3.1.0",
+		"aureooms-node-package": "^6.0.1"
 	},
 	"author": "aureooms"
 }
