@@ -27,7 +27,7 @@
 	"description": "Last In First Out abstract data types code bricks for JavaScript",
 	"devDependencies": {
 		"aureooms-js-array": "^3.1.0",
-		"aureooms-node-package": "^6.0.1"
+		"aureooms-node-package": "^7.0.0"
 	},
 	"author": "aureooms"
 }
