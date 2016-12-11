@@ -1,6 +1,6 @@
 {
   "name": "aureooms-js-lifo",
-  "description": "Last In First Out abstract data types code bricks for JavaScript",
+  "description": "Last In First Out data structures for JavaScript",
   "version": "3.0.0",
   "author": "Aurélien Ooms <aurelien.ooms@gmail.com>",
   "ava": {
