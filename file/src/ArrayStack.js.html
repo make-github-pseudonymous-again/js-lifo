@@ -2,8 +2,8 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <base data-ice="baseUrl">
-  <title data-ice="title">aureooms/js-lifo API Document</title>
+  <base data-ice="baseUrl" href="../../">
+  <title data-ice="title">src/ArrayStack.js | aureooms/js-lifo API Document</title>
   <link type="text/css" rel="stylesheet" href="css/style.css">
   <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
   <script src="script/prettify/prettify.js"></script>
@@ -47,20 +47,70 @@
 </div>
 </nav>
 
-<div class="content" data-ice="content"><div data-ice="index" class="github-markdown"><h1 id="-js-lifo-http-aureooms-github-io-js-lifo-"><a href="http://aureooms.github.io/js-lifo">js-lifo</a></h1>
-<p><em><strong>L</strong>ast <strong>I</strong>n, <strong>F</strong>irst <strong>O</strong>ut</em> data structures for JavaScript. Parent is
-<a href="https://github.com/aureooms/js-data-structures">aureooms/js-data-structures</a>.</p>
-<p><a href="https://raw.githubusercontent.com/aureooms/js-lifo/master/LICENSE"><img src="http://img.shields.io/npm/l/aureooms-js-lifo.svg?style=flat" alt="NPM license"></a>
-<a href="https://www.npmjs.org/package/aureooms-js-lifo"><img src="http://img.shields.io/npm/v/aureooms-js-lifo.svg?style=flat" alt="NPM version"></a>
-<a href="https://travis-ci.org/aureooms/js-lifo"><img src="http://img.shields.io/travis/aureooms/js-lifo.svg?style=flat" alt="Build Status"></a>
-<a href="https://coveralls.io/r/aureooms/js-lifo"><img src="http://img.shields.io/coveralls/aureooms/js-lifo.svg?style=flat" alt="Coverage Status"></a>
-<a href="https://david-dm.org/aureooms/js-lifo#info=dependencies"><img src="http://img.shields.io/david/aureooms/js-lifo.svg?style=flat" alt="Dependencies Status"></a>
-<a href="https://david-dm.org/aureooms/js-lifo#info=devDependencies"><img src="http://img.shields.io/david/dev/aureooms/js-lifo.svg?style=flat" alt="devDependencies Status"></a>
-<a href="https://codeclimate.com/github/aureooms/js-lifo"><img src="http://img.shields.io/codeclimate/github/aureooms/js-lifo.svg?style=flat" alt="Code Climate"></a>
-<a href="https://www.npmjs.org/package/aureooms-js-lifo"><img src="http://img.shields.io/npm/dm/aureooms-js-lifo.svg?style=flat" alt="NPM downloads per month"></a>
-<a href="https://github.com/aureooms/js-lifo/issues"><img src="http://img.shields.io/github/issues/aureooms/js-lifo.svg?style=flat" alt="GitHub issues"></a>
-<a href="https://aureooms.github.io/js-lifo/source.html"><img src="https://aureooms.github.io/js-lifo/badge.svg" alt="Documentation"></a></p>
-</div>
+<div class="content" data-ice="content"><h1 data-ice="title">src/ArrayStack.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">
+/**
+ * ArrayStack#peek only valid if ArrayStack#empty is false.
+ * ArrayStack#pop only valid if ArrayStack#empty is false.
+ * ArrayStack#push only valid if the storage array is not full.
+ */
+
+export default function ArrayStack ( array ) {
+
+	this.array = array ;
+	this.top = -1 ;
+
+}
+
+
+ArrayStack.prototype.empty = function ( ) {
+
+	return this.top === -1 ;
+
+} ;
+
+/**
+ * Only valid if ArrayStack#empty is false.
+ */
+
+ArrayStack.prototype.peek = function ( ) {
+
+	return this.array[this.top] ;
+
+} ;
+
+/**
+ * Only valid if the storage array is not full.
+ */
+
+ArrayStack.prototype.push = function ( value ) {
+
+	++this.top ;
+	this.array[this.top] = value ;
+
+} ;
+
+/**
+ * Only valid if ArrayStack#empty is false.
+ */
+
+ArrayStack.prototype.pop = function ( ) {
+
+	const value = this.array[this.top] ;
+
+	// clean up for gc
+	// 0 is for support of typed arrays
+	this.array[this.top] = 0 ;
+
+	--this.top ;
+
+	return value ;
+
+} ;
+
+
+</code></pre>
+
 </div>
 
 <footer class="footer">

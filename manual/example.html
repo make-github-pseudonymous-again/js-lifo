@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../">
+  <title data-ice="title">Example</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  
+  
+  <script src="script/manual.js"></script>
+<script data-ice="userScript" src="user/script/0-header.js"></script>
+<link data-ice="userStyle" rel="stylesheet" href="user/css/0-style.css">
+</head>
+<body class="layout-container manual-root" data-ice="rootContainer">
+
+<header>
+  <a href="./">Home</a>
+  <a href="./manual/index.html" data-ice="manualHeaderLink">Manual</a>
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  <a href="test.html" data-ice="testLink">Test</a>
+  <a data-ice="repoURL" href="https://github.com/aureooms/js-lifo.git" class="repo-url-github">Repository</a>
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+</header>
+
+<nav class="navigation" data-ice="nav"><div class="manual-toc-root">
+  
+<div data-ice="manual" data-toc-name="overview">
+    <h1 class="manual-toc-title"><a href="manual/overview.html" data-ice="title">Overview</a></h1>
+    <ul class="manual-toc">
+      
+    </ul>
+  </div>
+<div data-ice="manual" data-toc-name="installation">
+    <h1 class="manual-toc-title"><a href="manual/installation.html" data-ice="title">Installation</a></h1>
+    <ul class="manual-toc">
+      
+    <li data-ice="manualNav" class="indent-h2"><span class="manual-dot"></span><a href="manual/installation.html#jspm" data-ice="link">jspm</a></li>
+<li data-ice="manualNav" class="indent-h2"><span class="manual-dot"></span><a href="manual/installation.html#npm" data-ice="link">npm</a></li>
+</ul>
+  </div>
+<div data-ice="manual" data-toc-name="usage">
+    <h1 class="manual-toc-title"><a href="manual/usage.html" data-ice="title">Usage</a></h1>
+    <ul class="manual-toc">
+      
+    </ul>
+  </div>
+<div data-ice="manual" data-toc-name="example">
+    <h1 class="manual-toc-title"><a href="manual/example.html" data-ice="title">Example</a></h1>
+    <ul class="manual-toc">
+      
+    </ul>
+  </div>
+<div data-ice="manual" data-toc-name="reference">
+    <h1 class="manual-toc-title"><a href="identifiers.html" data-ice="title">Reference</a></h1>
+    <ul class="manual-toc">
+      
+    <li data-ice="manualNav" class="indent-h1"><span class="manual-dot"></span><a href="identifiers.html#function" data-ice="link">Function</a></li>
+</ul>
+  </div>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><div class="github-markdown">
+  <div class="manual-breadcrumb-list">
+    <a href="./manual/./index.html">Manual</a>
+    <span>&#xBB;</span>
+    <span data-ice="title">Example</span>
+  </div>
+  <div data-ice="content"><p>All data structures implemented in this package follow the following interface.</p>
+<pre><code class="lang-js"><code class="source-code prettyprint">let stack = new lifo. ... ( ... ) ;
+
+stack.empty( ) ; // returns true if stack is empty, false otherwise
+stack.peek( ) ; // returns the value stored at the top of the stack*
+stack.push( value ) ; // pushes a value at the top of the stack^
+stack.pop( ) ; // removes and returns the value at the top of the stack*
+
+//*Calls to the two methods #peek and #pop are valid only if calling #empty
+// would return false.  Nothing is done to prevent misuse of these two methods,
+// i.e. these errors must be prevented and handled by the caller.
+
+//^Specific conditions can apply for specific implementations. For example,
+// an instance of the ArrayStack class can handle at most `n` elements, where
+// `n` is the size of the allocated array. In other words, calls to #push are
+// valid only if the number of elements on the stack is strictly less than `n`.
+// Again, the caller is responsible for preventing and handling errors.</code>
+</code></pre>
+<p>Below are some examples illustrating usage of the data structures implemented
+in this package.</p>
+<pre><code class="lang-js"><code class="source-code prettyprint">// Stack implementation based on a list of nodes.
+let stack = new lifo.NodeStack( ) ;
+
+stack.empty( ) ; // true
+stack.push( 18 ) ;
+stack.empty( ) ; // false
+stack.peek( ) ; // 18
+stack.push( 3 ) ;
+stack.peek( ) ; // 3
+stack.pop( ) ; // 3
+stack.pop( ) ; // 18
+stack.empty( ) ; // true</code>
+</code></pre>
+<pre><code class="lang-js"><code class="source-code prettyprint">// Stack implementation based on a fixed size array.
+// `n` is the maximum number of elements the stack can handle.
+let n = 10 ;
+let array = new Float64Array( n ) ;
+let stack = new lifo.ArrayStack( array ) ;
+
+stack.empty( ) ; // true
+stack.push( Math.PI ) ;
+stack.empty( ) ; // false
+stack.peek( ) ; // 3.141592653589793
+stack.push( Math.E ) ;
+stack.peek( ) ; // 2.718281828459045
+stack.pop( ) ; // 2.718281828459045
+stack.pop( ) ; // 3.141592653589793
+stack.empty( ) ; // true</code>
+</code></pre>
+<p>Other examples can be found in <strong>test/js/src/base.js</strong>.</p>
+</div>
+</div>
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(0.4.8)</span></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>
