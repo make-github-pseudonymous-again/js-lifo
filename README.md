@@ -1,8 +1,20 @@
 [js-lifo](http://aureooms.github.io/js-lifo)
 ==
 
-_**L**ast **I**n, **F**irst **O**ut_ data structures for JavaScript. Parent is
-[aureooms/js-data-structures](https://github.com/aureooms/js-data-structures).
+<img src="https://cdn.rawgit.com/aureooms/js-lifo/master/media/sketch.svg" width="864">
+
+Last In, First Out data structures for JavaScript.
+See [docs](https://aureooms.github.io/js-lifo).
+Parent is [@aureooms/js-data-structures](https://github.com/aureooms/js-data-structures).
+
+```js
+queue.push( 1 ) ;
+queue.push( 2 ) ;
+queue.push( 3 ) ;
+queue.pop( ) ; // 3
+queue.pop( ) ; // 2
+queue.pop( ) ; // 1
+```
 
 [![NPM license](http://img.shields.io/npm/l/aureooms-js-lifo.svg?style=flat)](https://raw.githubusercontent.com/aureooms/js-lifo/master/LICENSE)
 [![NPM version](http://img.shields.io/npm/v/aureooms-js-lifo.svg?style=flat)](https://www.npmjs.org/package/aureooms-js-lifo)
