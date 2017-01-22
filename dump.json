@@ -2,23 +2,22 @@
   {
     "__docId__": 0,
     "kind": "file",
-    "static": true,
-    "variation": null,
     "name": "src/ArrayStack.js",
-    "memberof": null,
+    "content": "\n/**\n * ArrayStack#peek only valid if ArrayStack#empty is false.\n * ArrayStack#pop only valid if ArrayStack#empty is false.\n * ArrayStack#push only valid if the storage array is not full.\n */\n\nexport default function ArrayStack ( array ) {\n\n\tthis.array = array ;\n\tthis.top = -1 ;\n\n}\n\n\nArrayStack.prototype.empty = function ( ) {\n\n\treturn this.top === -1 ;\n\n} ;\n\n/**\n * Only valid if ArrayStack#empty is false.\n */\n\nArrayStack.prototype.peek = function ( ) {\n\n\treturn this.array[this.top] ;\n\n} ;\n\n/**\n * Only valid if the storage array is not full.\n */\n\nArrayStack.prototype.push = function ( value ) {\n\n\t++this.top ;\n\tthis.array[this.top] = value ;\n\n} ;\n\n/**\n * Only valid if ArrayStack#empty is false.\n */\n\nArrayStack.prototype.pop = function ( ) {\n\n\tconst value = this.array[this.top] ;\n\n\t// clean up for gc\n\t// 0 is for support of typed arrays\n\tthis.array[this.top] = 0 ;\n\n\t--this.top ;\n\n\treturn value ;\n\n} ;\n\n\n",
+    "static": true,
     "longname": "src/ArrayStack.js",
     "access": null,
     "description": null,
-    "lineNumber": 8,
-    "content": "\n/**\n * ArrayStack#peek only valid if ArrayStack#empty is false.\n * ArrayStack#pop only valid if ArrayStack#empty is false.\n * ArrayStack#push only valid if the storage array is not full.\n */\n\nexport default function ArrayStack ( array ) {\n\n\tthis.array = array ;\n\tthis.top = -1 ;\n\n}\n\n\nArrayStack.prototype.empty = function ( ) {\n\n\treturn this.top === -1 ;\n\n} ;\n\n/**\n * Only valid if ArrayStack#empty is false.\n */\n\nArrayStack.prototype.peek = function ( ) {\n\n\treturn this.array[this.top] ;\n\n} ;\n\n/**\n * Only valid if the storage array is not full.\n */\n\nArrayStack.prototype.push = function ( value ) {\n\n\t++this.top ;\n\tthis.array[this.top] = value ;\n\n} ;\n\n/**\n * Only valid if ArrayStack#empty is false.\n */\n\nArrayStack.prototype.pop = function ( ) {\n\n\tconst value = this.array[this.top] ;\n\n\t// clean up for gc\n\t// 0 is for support of typed arrays\n\tthis.array[this.top] = 0 ;\n\n\t--this.top ;\n\n\treturn value ;\n\n} ;\n\n\n"
+    "lineNumber": 1
   },
   {
     "__docId__": 1,
     "kind": "function",
-    "static": true,
-    "variation": null,
     "name": "ArrayStack",
     "memberof": "src/ArrayStack.js",
+    "generator": false,
+    "async": false,
+    "static": true,
     "longname": "src/ArrayStack.js~ArrayStack",
     "access": null,
     "export": true,
@@ -33,16 +32,16 @@
           "*"
         ]
       }
-    ],
-    "generator": false
+    ]
   },
   {
     "__docId__": 2,
     "kind": "function",
-    "static": true,
-    "variation": null,
     "name": "empty",
     "memberof": "src/ArrayStack.js",
+    "generator": false,
+    "async": false,
+    "static": true,
     "longname": "src/ArrayStack.js~empty",
     "access": null,
     "export": false,
@@ -51,21 +50,27 @@
     "description": null,
     "lineNumber": 16,
     "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
     "params": [],
     "return": {
       "types": [
         "*"
       ]
-    },
-    "generator": false
+    }
   },
   {
     "__docId__": 3,
     "kind": "function",
-    "static": true,
-    "variation": null,
     "name": "peek",
     "memberof": "src/ArrayStack.js",
+    "generator": false,
+    "async": false,
+    "static": true,
     "longname": "src/ArrayStack.js~peek",
     "access": null,
     "export": false,
@@ -78,16 +83,16 @@
       "types": [
         "*"
       ]
-    },
-    "generator": false
+    }
   },
   {
     "__docId__": 4,
     "kind": "function",
-    "static": true,
-    "variation": null,
     "name": "push",
     "memberof": "src/ArrayStack.js",
+    "generator": false,
+    "async": false,
+    "static": true,
     "longname": "src/ArrayStack.js~push",
     "access": null,
     "export": false,
@@ -102,16 +107,16 @@
           "*"
         ]
       }
-    ],
-    "generator": false
+    ]
   },
   {
     "__docId__": 5,
     "kind": "function",
-    "static": true,
-    "variation": null,
     "name": "pop",
     "memberof": "src/ArrayStack.js",
+    "generator": false,
+    "async": false,
+    "static": true,
     "longname": "src/ArrayStack.js~pop",
     "access": null,
     "export": false,
@@ -124,29 +129,27 @@
       "types": [
         "*"
       ]
-    },
-    "generator": false
+    }
   },
   {
     "__docId__": 6,
     "kind": "file",
-    "static": true,
-    "variation": null,
     "name": "src/DynamicStack.js",
-    "memberof": null,
+    "content": "\n/**\n * DynamicStack#peek only valid if DynamicStack#empty is false.\n * DynamicStack#pop only valid if DynamicStack#empty is false.\n */\n\nexport default function DynamicStack ( array , capacity , growthrate , realloc ) {\n\n\tthis.array = array ;\n\tthis.capacity = capacity ;\n\tthis.length = 0 ;\n\n\tthis.growthrate = growthrate ;\n\tthis.grs = growthrate * growthrate ;\n\tthis.realloc = realloc ;\n\n}\n\nDynamicStack.prototype.empty = function ( ) {\n\n\treturn this.length === 0 ;\n\n} ;\n\n/**\n * Only valid if DynamicStack#empty is false.\n */\n\nDynamicStack.prototype.peek = function ( ) {\n\n\treturn this.array[this.length - 1] ;\n\n} ;\n\nDynamicStack.prototype.grow = function ( len ) {\n\n\tif ( this.capacity < len ) {\n\n\t\tthis.capacity = len * this.growthrate ;\n\n\t\tthis.array = this.realloc( this.array , this.capacity ) ;\n\n\t}\n\n} ;\n\nDynamicStack.prototype.shrink = function ( len ) {\n\n\tif ( this.capacity >= len * this.grs ) {\n\n\t\tthis.capacity = len * this.growthrate ;\n\n\t\tthis.array = this.realloc( this.array , this.capacity ) ;\n\n\t}\n\n} ;\n\nDynamicStack.prototype.push = function ( value ) {\n\n\tconst last = this.length ;\n\n\t++this.length ;\n\n\tthis.grow( this.length ) ;\n\n\tthis.array[last] = value ;\n\n} ;\n\n/**\n * Only valid if DynamicStack#empty is false.\n */\n\nDynamicStack.prototype.pop = function ( ) {\n\n\t--this.length ;\n\n\tconst value = this.array[this.length] ;\n\n\tthis.shrink( this.length ) ;\n\n\treturn value ;\n\n} ;\n",
+    "static": true,
     "longname": "src/DynamicStack.js",
     "access": null,
     "description": null,
-    "lineNumber": 7,
-    "content": "\n/**\n * DynamicStack#peek only valid if DynamicStack#empty is false.\n * DynamicStack#pop only valid if DynamicStack#empty is false.\n */\n\nexport default function DynamicStack ( array , capacity , growthrate , realloc ) {\n\n\tthis.array = array ;\n\tthis.capacity = capacity ;\n\tthis.length = 0 ;\n\n\tthis.growthrate = growthrate ;\n\tthis.grs = growthrate * growthrate ;\n\tthis.realloc = realloc ;\n\n}\n\nDynamicStack.prototype.empty = function ( ) {\n\n\treturn this.length === 0 ;\n\n} ;\n\n/**\n * Only valid if DynamicStack#empty is false.\n */\n\nDynamicStack.prototype.peek = function ( ) {\n\n\treturn this.array[this.length - 1] ;\n\n} ;\n\nDynamicStack.prototype.grow = function ( len ) {\n\n\tif ( this.capacity < len ) {\n\n\t\tthis.capacity = len * this.growthrate ;\n\n\t\tthis.array = this.realloc( this.array , this.capacity ) ;\n\n\t}\n\n} ;\n\nDynamicStack.prototype.shrink = function ( len ) {\n\n\tif ( this.capacity >= len * this.grs ) {\n\n\t\tthis.capacity = len * this.growthrate ;\n\n\t\tthis.array = this.realloc( this.array , this.capacity ) ;\n\n\t}\n\n} ;\n\nDynamicStack.prototype.push = function ( value ) {\n\n\tconst last = this.length ;\n\n\t++this.length ;\n\n\tthis.grow( this.length ) ;\n\n\tthis.array[last] = value ;\n\n} ;\n\n/**\n * Only valid if DynamicStack#empty is false.\n */\n\nDynamicStack.prototype.pop = function ( ) {\n\n\t--this.length ;\n\n\tconst value = this.array[this.length] ;\n\n\tthis.shrink( this.length ) ;\n\n\treturn value ;\n\n} ;\n"
+    "lineNumber": 1
   },
   {
     "__docId__": 7,
     "kind": "function",
-    "static": true,
-    "variation": null,
     "name": "DynamicStack",
     "memberof": "src/DynamicStack.js",
+    "generator": false,
+    "async": false,
+    "static": true,
     "longname": "src/DynamicStack.js~DynamicStack",
     "access": null,
     "export": true,
@@ -179,16 +182,16 @@
           "*"
         ]
       }
-    ],
-    "generator": false
+    ]
   },
   {
     "__docId__": 8,
     "kind": "function",
-    "static": true,
-    "variation": null,
     "name": "empty",
     "memberof": "src/DynamicStack.js",
+    "generator": false,
+    "async": false,
+    "static": true,
     "longname": "src/DynamicStack.js~empty",
     "access": null,
     "export": false,
@@ -197,21 +200,27 @@
     "description": null,
     "lineNumber": 19,
     "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
     "params": [],
     "return": {
       "types": [
         "*"
       ]
-    },
-    "generator": false
+    }
   },
   {
     "__docId__": 9,
     "kind": "function",
-    "static": true,
-    "variation": null,
     "name": "peek",
     "memberof": "src/DynamicStack.js",
+    "generator": false,
+    "async": false,
+    "static": true,
     "longname": "src/DynamicStack.js~peek",
     "access": null,
     "export": false,
@@ -224,16 +233,16 @@
       "types": [
         "*"
       ]
-    },
-    "generator": false
+    }
   },
   {
     "__docId__": 10,
     "kind": "function",
-    "static": true,
-    "variation": null,
     "name": "grow",
     "memberof": "src/DynamicStack.js",
+    "generator": false,
+    "async": false,
+    "static": true,
     "longname": "src/DynamicStack.js~grow",
     "access": null,
     "export": false,
@@ -242,6 +251,12 @@
     "description": null,
     "lineNumber": 35,
     "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
     "params": [
       {
         "name": "len",
@@ -249,16 +264,16 @@
           "*"
         ]
       }
-    ],
-    "generator": false
+    ]
   },
   {
     "__docId__": 11,
     "kind": "function",
-    "static": true,
-    "variation": null,
     "name": "shrink",
     "memberof": "src/DynamicStack.js",
+    "generator": false,
+    "async": false,
+    "static": true,
     "longname": "src/DynamicStack.js~shrink",
     "access": null,
     "export": false,
@@ -267,6 +282,12 @@
     "description": null,
     "lineNumber": 47,
     "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
     "params": [
       {
         "name": "len",
@@ -274,16 +295,16 @@
           "*"
         ]
       }
-    ],
-    "generator": false
+    ]
   },
   {
     "__docId__": 12,
     "kind": "function",
-    "static": true,
-    "variation": null,
     "name": "push",
     "memberof": "src/DynamicStack.js",
+    "generator": false,
+    "async": false,
+    "static": true,
     "longname": "src/DynamicStack.js~push",
     "access": null,
     "export": false,
@@ -292,6 +313,12 @@
     "description": null,
     "lineNumber": 59,
     "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
     "params": [
       {
         "name": "value",
@@ -299,16 +326,16 @@
           "*"
         ]
       }
-    ],
-    "generator": false
+    ]
   },
   {
     "__docId__": 13,
     "kind": "function",
-    "static": true,
-    "variation": null,
     "name": "pop",
     "memberof": "src/DynamicStack.js",
+    "generator": false,
+    "async": false,
+    "static": true,
     "longname": "src/DynamicStack.js~pop",
     "access": null,
     "export": false,
@@ -321,29 +348,27 @@
       "types": [
         "*"
       ]
-    },
-    "generator": false
+    }
   },
   {
     "__docId__": 14,
     "kind": "file",
-    "static": true,
-    "variation": null,
     "name": "src/JSArrayPrototypeStack.js",
-    "memberof": null,
+    "content": "/**\n * JSArrayPrototypeStack#peek only valid if JSArrayPrototypeStack#empty is false.\n * JSArrayPrototypeStack#pop only valid if JSArrayPrototypeStack#empty is false.\n */\n\nexport default function JSArrayPrototypeStack ( ) { }\n\nJSArrayPrototypeStack.prototype = [] ;\n\nJSArrayPrototypeStack.prototype.empty = function ( ) {\n\n\treturn this.length === 0 ;\n\n} ;\n\n/**\n * Only valid if JSArrayPrototypeStack#empty is false.\n */\n\nJSArrayPrototypeStack.prototype.peek = function ( ) {\n\n\treturn this[this.length - 1] ;\n\n} ;\n\n\n",
+    "static": true,
     "longname": "src/JSArrayPrototypeStack.js",
     "access": null,
     "description": null,
-    "lineNumber": 6,
-    "content": "/**\n * JSArrayPrototypeStack#peek only valid if JSArrayPrototypeStack#empty is false.\n * JSArrayPrototypeStack#pop only valid if JSArrayPrototypeStack#empty is false.\n */\n\nexport default function JSArrayPrototypeStack ( ) { }\n\nJSArrayPrototypeStack.prototype = [] ;\n\nJSArrayPrototypeStack.prototype.empty = function ( ) {\n\n\treturn this.length === 0 ;\n\n} ;\n\n/**\n * Only valid if JSArrayPrototypeStack#empty is false.\n */\n\nJSArrayPrototypeStack.prototype.peek = function ( ) {\n\n\treturn this[this.length - 1] ;\n\n} ;\n\n\n"
+    "lineNumber": 1
   },
   {
     "__docId__": 15,
     "kind": "function",
-    "static": true,
-    "variation": null,
     "name": "JSArrayPrototypeStack",
     "memberof": "src/JSArrayPrototypeStack.js",
+    "generator": false,
+    "async": false,
+    "static": true,
     "longname": "src/JSArrayPrototypeStack.js~JSArrayPrototypeStack",
     "access": null,
     "export": true,
@@ -351,16 +376,16 @@
     "importStyle": "JSArrayPrototypeStack",
     "description": "JSArrayPrototypeStack#peek only valid if JSArrayPrototypeStack#empty is false.\nJSArrayPrototypeStack#pop only valid if JSArrayPrototypeStack#empty is false.",
     "lineNumber": 6,
-    "params": [],
-    "generator": false
+    "params": []
   },
   {
     "__docId__": 16,
     "kind": "function",
-    "static": true,
-    "variation": null,
     "name": "empty",
     "memberof": "src/JSArrayPrototypeStack.js",
+    "generator": false,
+    "async": false,
+    "static": true,
     "longname": "src/JSArrayPrototypeStack.js~empty",
     "access": null,
     "export": false,
@@ -369,21 +394,27 @@
     "description": null,
     "lineNumber": 10,
     "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
     "params": [],
     "return": {
       "types": [
         "*"
       ]
-    },
-    "generator": false
+    }
   },
   {
     "__docId__": 17,
     "kind": "function",
-    "static": true,
-    "variation": null,
     "name": "peek",
     "memberof": "src/JSArrayPrototypeStack.js",
+    "generator": false,
+    "async": false,
+    "static": true,
     "longname": "src/JSArrayPrototypeStack.js~peek",
     "access": null,
     "export": false,
@@ -396,29 +427,27 @@
       "types": [
         "*"
       ]
-    },
-    "generator": false
+    }
   },
   {
     "__docId__": 18,
     "kind": "file",
-    "static": true,
-    "variation": null,
     "name": "src/JSArrayWrapperStack.js",
-    "memberof": null,
+    "content": "/**\n * JSArrayWrapperStack#peek only valid if JSArrayWrapperStack#empty is false.\n * JSArrayWrapperStack#pop only valid if JSArrayWrapperStack#empty is false.\n */\n\nexport default function JSArrayWrapperStack ( array ) {\n\n\tthis.array = array ;\n\n}\n\n\nJSArrayWrapperStack.prototype.empty = function ( ) {\n\n\treturn this.array.length === 0 ;\n\n} ;\n\n/**\n * Only valid if JSArrayWrapperStack#empty is false.\n */\n\nJSArrayWrapperStack.prototype.peek = function ( ) {\n\n\treturn this.array[this.array.length - 1] ;\n\n} ;\n\nJSArrayWrapperStack.prototype.push = function ( value ) {\n\n\treturn this.array.push( value ) ;\n\n} ;\n\n/**\n * Only valid if JSArrayWrapperStack#empty is false.\n */\n\nJSArrayWrapperStack.prototype.pop = function ( ) {\n\n\treturn this.array.pop( ) ;\n\n} ;\n\n\n",
+    "static": true,
     "longname": "src/JSArrayWrapperStack.js",
     "access": null,
     "description": null,
-    "lineNumber": 6,
-    "content": "/**\n * JSArrayWrapperStack#peek only valid if JSArrayWrapperStack#empty is false.\n * JSArrayWrapperStack#pop only valid if JSArrayWrapperStack#empty is false.\n */\n\nexport default function JSArrayWrapperStack ( array ) {\n\n\tthis.array = array ;\n\n}\n\n\nJSArrayWrapperStack.prototype.empty = function ( ) {\n\n\treturn this.array.length === 0 ;\n\n} ;\n\n/**\n * Only valid if JSArrayWrapperStack#empty is false.\n */\n\nJSArrayWrapperStack.prototype.peek = function ( ) {\n\n\treturn this.array[this.array.length - 1] ;\n\n} ;\n\nJSArrayWrapperStack.prototype.push = function ( value ) {\n\n\treturn this.array.push( value ) ;\n\n} ;\n\n/**\n * Only valid if JSArrayWrapperStack#empty is false.\n */\n\nJSArrayWrapperStack.prototype.pop = function ( ) {\n\n\treturn this.array.pop( ) ;\n\n} ;\n\n\n"
+    "lineNumber": 1
   },
   {
     "__docId__": 19,
     "kind": "function",
-    "static": true,
-    "variation": null,
     "name": "JSArrayWrapperStack",
     "memberof": "src/JSArrayWrapperStack.js",
+    "generator": false,
+    "async": false,
+    "static": true,
     "longname": "src/JSArrayWrapperStack.js~JSArrayWrapperStack",
     "access": null,
     "export": true,
@@ -433,16 +462,16 @@
           "*"
         ]
       }
-    ],
-    "generator": false
+    ]
   },
   {
     "__docId__": 20,
     "kind": "function",
-    "static": true,
-    "variation": null,
     "name": "empty",
     "memberof": "src/JSArrayWrapperStack.js",
+    "generator": false,
+    "async": false,
+    "static": true,
     "longname": "src/JSArrayWrapperStack.js~empty",
     "access": null,
     "export": false,
@@ -451,21 +480,27 @@
     "description": null,
     "lineNumber": 13,
     "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
     "params": [],
     "return": {
       "types": [
         "*"
       ]
-    },
-    "generator": false
+    }
   },
   {
     "__docId__": 21,
     "kind": "function",
-    "static": true,
-    "variation": null,
     "name": "peek",
     "memberof": "src/JSArrayWrapperStack.js",
+    "generator": false,
+    "async": false,
+    "static": true,
     "longname": "src/JSArrayWrapperStack.js~peek",
     "access": null,
     "export": false,
@@ -478,16 +513,16 @@
       "types": [
         "*"
       ]
-    },
-    "generator": false
+    }
   },
   {
     "__docId__": 22,
     "kind": "function",
-    "static": true,
-    "variation": null,
     "name": "push",
     "memberof": "src/JSArrayWrapperStack.js",
+    "generator": false,
+    "async": false,
+    "static": true,
     "longname": "src/JSArrayWrapperStack.js~push",
     "access": null,
     "export": false,
@@ -496,6 +531,12 @@
     "description": null,
     "lineNumber": 29,
     "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
     "params": [
       {
         "name": "value",
@@ -508,16 +549,16 @@
       "types": [
         "*"
       ]
-    },
-    "generator": false
+    }
   },
   {
     "__docId__": 23,
     "kind": "function",
-    "static": true,
-    "variation": null,
     "name": "pop",
     "memberof": "src/JSArrayWrapperStack.js",
+    "generator": false,
+    "async": false,
+    "static": true,
     "longname": "src/JSArrayWrapperStack.js~pop",
     "access": null,
     "export": false,
@@ -530,29 +571,27 @@
       "types": [
         "*"
       ]
-    },
-    "generator": false
+    }
   },
   {
     "__docId__": 24,
     "kind": "file",
-    "static": true,
-    "variation": null,
     "name": "src/Node.js",
-    "memberof": null,
+    "content": "\nexport default function Node ( value , next ) {\n\n\tthis.value = value ;\n\tthis.next = next ;\n\n}\n",
+    "static": true,
     "longname": "src/Node.js",
     "access": null,
     "description": null,
-    "lineNumber": 2,
-    "content": "\nexport default function Node ( value , next ) {\n\n\tthis.value = value ;\n\tthis.next = next ;\n\n}\n"
+    "lineNumber": 1
   },
   {
     "__docId__": 25,
     "kind": "function",
-    "static": true,
-    "variation": null,
     "name": "Node",
     "memberof": "src/Node.js",
+    "generator": false,
+    "async": false,
+    "static": true,
     "longname": "src/Node.js~Node",
     "access": null,
     "export": true,
@@ -561,6 +600,12 @@
     "description": null,
     "lineNumber": 2,
     "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
     "params": [
       {
         "name": "value",
@@ -574,29 +619,27 @@
           "*"
         ]
       }
-    ],
-    "generator": false
+    ]
   },
   {
     "__docId__": 26,
     "kind": "file",
-    "static": true,
-    "variation": null,
     "name": "src/NodeStack.js",
-    "memberof": null,
+    "content": "import Node from './Node' ;\n\n/**\n * NodeStack#peek only valid if NodeStack#empty is false.\n * NodeStack#pop only valid if NodeStack#empty is false.\n */\n\nexport default function NodeStack ( ) {\n\n\tthis.top = null ;\n\n}\n\nNodeStack.prototype.empty = function ( ) {\n\n\treturn this.top === null ;\n\n} ;\n\n/**\n * Only valid if NodeStack#empty is false.\n */\n\nNodeStack.prototype.peek = function ( ) {\n\n\treturn this.top.value ;\n\n} ;\n\nNodeStack.prototype.push = function ( value ) {\n\n\tthis.top = new Node( value , this.top ) ;\n\n} ;\n\n/**\n * Only valid if NodeStack#empty is false.\n */\n\nNodeStack.prototype.pop = function ( ) {\n\n\tconst value = this.top.value ;\n\n\tthis.top = this.top.next ;\n\n\treturn value ;\n\n} ;\n",
+    "static": true,
     "longname": "src/NodeStack.js",
     "access": null,
     "description": null,
-    "lineNumber": 1,
-    "content": "import Node from './Node' ;\n\n/**\n * NodeStack#peek only valid if NodeStack#empty is false.\n * NodeStack#pop only valid if NodeStack#empty is false.\n */\n\nexport default function NodeStack ( ) {\n\n\tthis.top = null ;\n\n}\n\nNodeStack.prototype.empty = function ( ) {\n\n\treturn this.top === null ;\n\n} ;\n\n/**\n * Only valid if NodeStack#empty is false.\n */\n\nNodeStack.prototype.peek = function ( ) {\n\n\treturn this.top.value ;\n\n} ;\n\nNodeStack.prototype.push = function ( value ) {\n\n\tthis.top = new Node( value , this.top ) ;\n\n} ;\n\n/**\n * Only valid if NodeStack#empty is false.\n */\n\nNodeStack.prototype.pop = function ( ) {\n\n\tconst value = this.top.value ;\n\n\tthis.top = this.top.next ;\n\n\treturn value ;\n\n} ;\n"
+    "lineNumber": 1
   },
   {
     "__docId__": 27,
     "kind": "function",
-    "static": true,
-    "variation": null,
     "name": "NodeStack",
     "memberof": "src/NodeStack.js",
+    "generator": false,
+    "async": false,
+    "static": true,
     "longname": "src/NodeStack.js~NodeStack",
     "access": null,
     "export": true,
@@ -604,16 +647,16 @@
     "importStyle": "NodeStack",
     "description": "NodeStack#peek only valid if NodeStack#empty is false.\nNodeStack#pop only valid if NodeStack#empty is false.",
     "lineNumber": 8,
-    "params": [],
-    "generator": false
+    "params": []
   },
   {
     "__docId__": 28,
     "kind": "function",
-    "static": true,
-    "variation": null,
     "name": "empty",
     "memberof": "src/NodeStack.js",
+    "generator": false,
+    "async": false,
+    "static": true,
     "longname": "src/NodeStack.js~empty",
     "access": null,
     "export": false,
@@ -622,21 +665,27 @@
     "description": null,
     "lineNumber": 14,
     "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
     "params": [],
     "return": {
       "types": [
         "*"
       ]
-    },
-    "generator": false
+    }
   },
   {
     "__docId__": 29,
     "kind": "function",
-    "static": true,
-    "variation": null,
     "name": "peek",
     "memberof": "src/NodeStack.js",
+    "generator": false,
+    "async": false,
+    "static": true,
     "longname": "src/NodeStack.js~peek",
     "access": null,
     "export": false,
@@ -649,16 +698,16 @@
       "types": [
         "*"
       ]
-    },
-    "generator": false
+    }
   },
   {
     "__docId__": 30,
     "kind": "function",
-    "static": true,
-    "variation": null,
     "name": "push",
     "memberof": "src/NodeStack.js",
+    "generator": false,
+    "async": false,
+    "static": true,
     "longname": "src/NodeStack.js~push",
     "access": null,
     "export": false,
@@ -667,6 +716,12 @@
     "description": null,
     "lineNumber": 30,
     "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
     "params": [
       {
         "name": "value",
@@ -674,16 +729,16 @@
           "*"
         ]
       }
-    ],
-    "generator": false
+    ]
   },
   {
     "__docId__": 31,
     "kind": "function",
-    "static": true,
-    "variation": null,
     "name": "pop",
     "memberof": "src/NodeStack.js",
+    "generator": false,
+    "async": false,
+    "static": true,
     "longname": "src/NodeStack.js~pop",
     "access": null,
     "export": false,
@@ -696,29 +751,38 @@
       "types": [
         "*"
       ]
-    },
-    "generator": false
+    }
   },
   {
     "__docId__": 32,
     "kind": "file",
+    "name": "src/index.js",
+    "content": "import ArrayStack from './ArrayStack' ;\nimport DynamicStack from './DynamicStack' ;\nimport JSArrayPrototypeStack from './JSArrayPrototypeStack' ;\nimport JSArrayWrapperStack from './JSArrayWrapperStack' ;\nimport Node from './Node' ;\nimport NodeStack from './NodeStack' ;\nimport utils from './utils' ;\n\nexport default {\n\tArrayStack ,\n\tDynamicStack ,\n\tJSArrayPrototypeStack ,\n\tJSArrayWrapperStack ,\n\tNode ,\n\tNodeStack ,\n\tutils ,\n} ;\n\nexport {\n\tArrayStack ,\n\tDynamicStack ,\n\tJSArrayPrototypeStack ,\n\tJSArrayWrapperStack ,\n\tNode ,\n\tNodeStack ,\n\tutils ,\n} ;\n",
     "static": true,
-    "variation": null,
-    "name": "src/utils/concat.js",
-    "memberof": null,
-    "longname": "src/utils/concat.js",
+    "longname": "src/index.js",
     "access": null,
     "description": null,
-    "lineNumber": 2,
-    "content": "\nexport default function concat ( hi , lo , stack ) {\n\n\tdecant( hi , stack ) ;\n\tdecant( lo , stack ) ;\n\n}\n"
+    "lineNumber": 1
   },
   {
     "__docId__": 33,
-    "kind": "function",
+    "kind": "file",
+    "name": "src/utils/concat.js",
+    "content": "\nexport default function concat ( hi , lo , stack ) {\n\n\tdecant( hi , stack ) ;\n\tdecant( lo , stack ) ;\n\n}\n",
     "static": true,
-    "variation": null,
+    "longname": "src/utils/concat.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 34,
+    "kind": "function",
     "name": "concat",
     "memberof": "src/utils/concat.js",
+    "generator": false,
+    "async": false,
+    "static": true,
     "longname": "src/utils/concat.js~concat",
     "access": null,
     "export": true,
@@ -727,6 +791,12 @@
     "description": null,
     "lineNumber": 2,
     "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
     "params": [
       {
         "name": "hi",
@@ -746,29 +816,27 @@
           "*"
         ]
       }
-    ],
-    "generator": false
-  },
-  {
-    "__docId__": 34,
-    "kind": "file",
-    "static": true,
-    "variation": null,
-    "name": "src/utils/decant.js",
-    "memberof": null,
-    "longname": "src/utils/decant.js",
-    "access": null,
-    "description": null,
-    "lineNumber": 2,
-    "content": "\nexport default function decant ( input , output ) {\n\n\twhile ( !input.empty( ) ) output.push( input.pop( ) ) ;\n\n}\n\n\n\n"
+    ]
   },
   {
     "__docId__": 35,
-    "kind": "function",
+    "kind": "file",
+    "name": "src/utils/decant.js",
+    "content": "\nexport default function decant ( input , output ) {\n\n\twhile ( !input.empty( ) ) output.push( input.pop( ) ) ;\n\n}\n\n\n\n",
     "static": true,
-    "variation": null,
+    "longname": "src/utils/decant.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 36,
+    "kind": "function",
     "name": "decant",
     "memberof": "src/utils/decant.js",
+    "generator": false,
+    "async": false,
+    "static": true,
     "longname": "src/utils/decant.js~decant",
     "access": null,
     "export": true,
@@ -777,6 +845,12 @@
     "description": null,
     "lineNumber": 2,
     "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
     "params": [
       {
         "name": "input",
@@ -790,29 +864,38 @@
           "*"
         ]
       }
-    ],
-    "generator": false
-  },
-  {
-    "__docId__": 36,
-    "kind": "file",
-    "static": true,
-    "variation": null,
-    "name": "src/utils/split.js",
-    "memberof": null,
-    "longname": "src/utils/split.js",
-    "access": null,
-    "description": null,
-    "lineNumber": 13,
-    "content": "\n/**\n * Splits a stack into 2 according to some predicate function.\n *\n * @param {function} predicate function which tells in which output stack each\n * element must go.\n * @param {object} stack The input stack.\n * @param {int} hi An empty stack.\n * @param {int} lo An empty stack.\n *\n */\n\nexport default function split ( predicate , stack , hi , lo ) {\n\n\twhile ( !stack.empty( ) ) {\n\n\t\tconst key = stack.pop( ) ;\n\n\t\tif ( predicate( key ) ) hi.push( key ) ;\n\n\t\telse lo.push( key ) ;\n\n\t}\n\n}\n"
+    ]
   },
   {
     "__docId__": 37,
-    "kind": "function",
+    "kind": "file",
+    "name": "src/utils/index.js",
+    "content": "import concat from './concat' ;\nimport decant from './decant' ;\nimport split from './split' ;\n\nexport default {\n\tconcat ,\n\tdecant ,\n\tsplit ,\n} ;\n\nexport {\n\tconcat ,\n\tdecant ,\n\tsplit ,\n} ;\n",
     "static": true,
-    "variation": null,
+    "longname": "src/utils/index.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 38,
+    "kind": "file",
+    "name": "src/utils/split.js",
+    "content": "\n/**\n * Splits a stack into 2 according to some predicate function.\n *\n * @param {function} predicate function which tells in which output stack each\n * element must go.\n * @param {object} stack The input stack.\n * @param {int} hi An empty stack.\n * @param {int} lo An empty stack.\n *\n */\n\nexport default function split ( predicate , stack , hi , lo ) {\n\n\twhile ( !stack.empty( ) ) {\n\n\t\tconst key = stack.pop( ) ;\n\n\t\tif ( predicate( key ) ) hi.push( key ) ;\n\n\t\telse lo.push( key ) ;\n\n\t}\n\n}\n",
+    "static": true,
+    "longname": "src/utils/split.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 39,
+    "kind": "function",
     "name": "split",
     "memberof": "src/utils/split.js",
+    "generator": false,
+    "async": false,
+    "static": true,
     "longname": "src/utils/split.js~split",
     "access": null,
     "export": true,
@@ -861,44 +944,16 @@
         "name": "lo",
         "description": "An empty stack."
       }
-    ],
-    "generator": false
-  },
-  {
-    "__docId__": 39,
-    "kind": "external",
-    "static": true,
-    "variation": null,
-    "name": "Infinity",
-    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Infinity",
-    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
-    "longname": "BuiltinExternal/ECMAScriptExternal.js~Infinity",
-    "access": null,
-    "description": "",
-    "builtinExternal": true
-  },
-  {
-    "__docId__": 40,
-    "kind": "external",
-    "static": true,
-    "variation": null,
-    "name": "NaN",
-    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/NaN",
-    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
-    "longname": "BuiltinExternal/ECMAScriptExternal.js~NaN",
-    "access": null,
-    "description": "",
-    "builtinExternal": true
+    ]
   },
   {
     "__docId__": 41,
     "kind": "external",
-    "static": true,
-    "variation": null,
-    "name": "undefined",
-    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined",
+    "name": "Infinity",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Infinity",
     "memberof": "BuiltinExternal/ECMAScriptExternal.js",
-    "longname": "BuiltinExternal/ECMAScriptExternal.js~undefined",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Infinity",
     "access": null,
     "description": "",
     "builtinExternal": true
@@ -906,12 +961,11 @@
   {
     "__docId__": 42,
     "kind": "external",
-    "static": true,
-    "variation": null,
-    "name": "null",
-    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null",
+    "name": "NaN",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/NaN",
     "memberof": "BuiltinExternal/ECMAScriptExternal.js",
-    "longname": "BuiltinExternal/ECMAScriptExternal.js~null",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~NaN",
     "access": null,
     "description": "",
     "builtinExternal": true
@@ -919,12 +973,11 @@
   {
     "__docId__": 43,
     "kind": "external",
-    "static": true,
-    "variation": null,
-    "name": "Object",
-    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object",
+    "name": "undefined",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined",
     "memberof": "BuiltinExternal/ECMAScriptExternal.js",
-    "longname": "BuiltinExternal/ECMAScriptExternal.js~Object",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~undefined",
     "access": null,
     "description": "",
     "builtinExternal": true
@@ -932,12 +985,11 @@
   {
     "__docId__": 44,
     "kind": "external",
-    "static": true,
-    "variation": null,
-    "name": "object",
-    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object",
+    "name": "null",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null",
     "memberof": "BuiltinExternal/ECMAScriptExternal.js",
-    "longname": "BuiltinExternal/ECMAScriptExternal.js~object",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~null",
     "access": null,
     "description": "",
     "builtinExternal": true
@@ -945,12 +997,11 @@
   {
     "__docId__": 45,
     "kind": "external",
-    "static": true,
-    "variation": null,
-    "name": "Function",
-    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function",
+    "name": "Object",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object",
     "memberof": "BuiltinExternal/ECMAScriptExternal.js",
-    "longname": "BuiltinExternal/ECMAScriptExternal.js~Function",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Object",
     "access": null,
     "description": "",
     "builtinExternal": true
@@ -958,12 +1009,11 @@
   {
     "__docId__": 46,
     "kind": "external",
-    "static": true,
-    "variation": null,
-    "name": "function",
-    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function",
+    "name": "object",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object",
     "memberof": "BuiltinExternal/ECMAScriptExternal.js",
-    "longname": "BuiltinExternal/ECMAScriptExternal.js~function",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~object",
     "access": null,
     "description": "",
     "builtinExternal": true
@@ -971,12 +1021,11 @@
   {
     "__docId__": 47,
     "kind": "external",
-    "static": true,
-    "variation": null,
-    "name": "Boolean",
-    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean",
+    "name": "Function",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function",
     "memberof": "BuiltinExternal/ECMAScriptExternal.js",
-    "longname": "BuiltinExternal/ECMAScriptExternal.js~Boolean",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Function",
     "access": null,
     "description": "",
     "builtinExternal": true
@@ -984,12 +1033,11 @@
   {
     "__docId__": 48,
     "kind": "external",
-    "static": true,
-    "variation": null,
-    "name": "boolean",
-    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean",
+    "name": "function",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function",
     "memberof": "BuiltinExternal/ECMAScriptExternal.js",
-    "longname": "BuiltinExternal/ECMAScriptExternal.js~boolean",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~function",
     "access": null,
     "description": "",
     "builtinExternal": true
@@ -997,12 +1045,11 @@
   {
     "__docId__": 49,
     "kind": "external",
-    "static": true,
-    "variation": null,
-    "name": "Symbol",
-    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol",
+    "name": "Boolean",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean",
     "memberof": "BuiltinExternal/ECMAScriptExternal.js",
-    "longname": "BuiltinExternal/ECMAScriptExternal.js~Symbol",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Boolean",
     "access": null,
     "description": "",
     "builtinExternal": true
@@ -1010,12 +1057,11 @@
   {
     "__docId__": 50,
     "kind": "external",
-    "static": true,
-    "variation": null,
-    "name": "Error",
-    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error",
+    "name": "boolean",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean",
     "memberof": "BuiltinExternal/ECMAScriptExternal.js",
-    "longname": "BuiltinExternal/ECMAScriptExternal.js~Error",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~boolean",
     "access": null,
     "description": "",
     "builtinExternal": true
@@ -1023,12 +1069,11 @@
   {
     "__docId__": 51,
     "kind": "external",
-    "static": true,
-    "variation": null,
-    "name": "EvalError",
-    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/EvalError",
+    "name": "Symbol",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol",
     "memberof": "BuiltinExternal/ECMAScriptExternal.js",
-    "longname": "BuiltinExternal/ECMAScriptExternal.js~EvalError",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Symbol",
     "access": null,
     "description": "",
     "builtinExternal": true
@@ -1036,12 +1081,11 @@
   {
     "__docId__": 52,
     "kind": "external",
-    "static": true,
-    "variation": null,
-    "name": "InternalError",
-    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/InternalError",
+    "name": "Error",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error",
     "memberof": "BuiltinExternal/ECMAScriptExternal.js",
-    "longname": "BuiltinExternal/ECMAScriptExternal.js~InternalError",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Error",
     "access": null,
     "description": "",
     "builtinExternal": true
@@ -1049,12 +1093,11 @@
   {
     "__docId__": 53,
     "kind": "external",
-    "static": true,
-    "variation": null,
-    "name": "RangeError",
-    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RangeError",
+    "name": "EvalError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/EvalError",
     "memberof": "BuiltinExternal/ECMAScriptExternal.js",
-    "longname": "BuiltinExternal/ECMAScriptExternal.js~RangeError",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~EvalError",
     "access": null,
     "description": "",
     "builtinExternal": true
@@ -1062,12 +1105,11 @@
   {
     "__docId__": 54,
     "kind": "external",
-    "static": true,
-    "variation": null,
-    "name": "ReferenceError",
-    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ReferenceError",
+    "name": "InternalError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/InternalError",
     "memberof": "BuiltinExternal/ECMAScriptExternal.js",
-    "longname": "BuiltinExternal/ECMAScriptExternal.js~ReferenceError",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~InternalError",
     "access": null,
     "description": "",
     "builtinExternal": true
@@ -1075,12 +1117,11 @@
   {
     "__docId__": 55,
     "kind": "external",
-    "static": true,
-    "variation": null,
-    "name": "SyntaxError",
-    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/SyntaxError",
+    "name": "RangeError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RangeError",
     "memberof": "BuiltinExternal/ECMAScriptExternal.js",
-    "longname": "BuiltinExternal/ECMAScriptExternal.js~SyntaxError",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~RangeError",
     "access": null,
     "description": "",
     "builtinExternal": true
@@ -1088,12 +1129,11 @@
   {
     "__docId__": 56,
     "kind": "external",
-    "static": true,
-    "variation": null,
-    "name": "TypeError",
-    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypeError",
+    "name": "ReferenceError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ReferenceError",
     "memberof": "BuiltinExternal/ECMAScriptExternal.js",
-    "longname": "BuiltinExternal/ECMAScriptExternal.js~TypeError",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~ReferenceError",
     "access": null,
     "description": "",
     "builtinExternal": true
@@ -1101,12 +1141,11 @@
   {
     "__docId__": 57,
     "kind": "external",
-    "static": true,
-    "variation": null,
-    "name": "URIError",
-    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/URIError",
+    "name": "SyntaxError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/SyntaxError",
     "memberof": "BuiltinExternal/ECMAScriptExternal.js",
-    "longname": "BuiltinExternal/ECMAScriptExternal.js~URIError",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~SyntaxError",
     "access": null,
     "description": "",
     "builtinExternal": true
@@ -1114,12 +1153,11 @@
   {
     "__docId__": 58,
     "kind": "external",
-    "static": true,
-    "variation": null,
-    "name": "Number",
-    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number",
+    "name": "TypeError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypeError",
     "memberof": "BuiltinExternal/ECMAScriptExternal.js",
-    "longname": "BuiltinExternal/ECMAScriptExternal.js~Number",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~TypeError",
     "access": null,
     "description": "",
     "builtinExternal": true
@@ -1127,12 +1165,11 @@
   {
     "__docId__": 59,
     "kind": "external",
-    "static": true,
-    "variation": null,
-    "name": "number",
-    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number",
+    "name": "URIError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/URIError",
     "memberof": "BuiltinExternal/ECMAScriptExternal.js",
-    "longname": "BuiltinExternal/ECMAScriptExternal.js~number",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~URIError",
     "access": null,
     "description": "",
     "builtinExternal": true
@@ -1140,12 +1177,11 @@
   {
     "__docId__": 60,
     "kind": "external",
-    "static": true,
-    "variation": null,
-    "name": "Date",
-    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date",
+    "name": "Number",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number",
     "memberof": "BuiltinExternal/ECMAScriptExternal.js",
-    "longname": "BuiltinExternal/ECMAScriptExternal.js~Date",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Number",
     "access": null,
     "description": "",
     "builtinExternal": true
@@ -1153,12 +1189,11 @@
   {
     "__docId__": 61,
     "kind": "external",
-    "static": true,
-    "variation": null,
-    "name": "String",
-    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String",
+    "name": "number",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number",
     "memberof": "BuiltinExternal/ECMAScriptExternal.js",
-    "longname": "BuiltinExternal/ECMAScriptExternal.js~String",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~number",
     "access": null,
     "description": "",
     "builtinExternal": true
@@ -1166,12 +1201,11 @@
   {
     "__docId__": 62,
     "kind": "external",
-    "static": true,
-    "variation": null,
-    "name": "string",
-    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String",
+    "name": "Date",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date",
     "memberof": "BuiltinExternal/ECMAScriptExternal.js",
-    "longname": "BuiltinExternal/ECMAScriptExternal.js~string",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Date",
     "access": null,
     "description": "",
     "builtinExternal": true
@@ -1179,12 +1213,11 @@
   {
     "__docId__": 63,
     "kind": "external",
-    "static": true,
-    "variation": null,
-    "name": "RegExp",
-    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp",
+    "name": "String",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String",
     "memberof": "BuiltinExternal/ECMAScriptExternal.js",
-    "longname": "BuiltinExternal/ECMAScriptExternal.js~RegExp",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~String",
     "access": null,
     "description": "",
     "builtinExternal": true
@@ -1192,12 +1225,11 @@
   {
     "__docId__": 64,
     "kind": "external",
-    "static": true,
-    "variation": null,
-    "name": "Array",
-    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array",
+    "name": "string",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String",
     "memberof": "BuiltinExternal/ECMAScriptExternal.js",
-    "longname": "BuiltinExternal/ECMAScriptExternal.js~Array",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~string",
     "access": null,
     "description": "",
     "builtinExternal": true
@@ -1205,12 +1237,11 @@
   {
     "__docId__": 65,
     "kind": "external",
-    "static": true,
-    "variation": null,
-    "name": "Int8Array",
-    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int8Array",
+    "name": "RegExp",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp",
     "memberof": "BuiltinExternal/ECMAScriptExternal.js",
-    "longname": "BuiltinExternal/ECMAScriptExternal.js~Int8Array",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~RegExp",
     "access": null,
     "description": "",
     "builtinExternal": true
@@ -1218,12 +1249,11 @@
   {
     "__docId__": 66,
     "kind": "external",
-    "static": true,
-    "variation": null,
-    "name": "Uint8Array",
-    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array",
+    "name": "Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array",
     "memberof": "BuiltinExternal/ECMAScriptExternal.js",
-    "longname": "BuiltinExternal/ECMAScriptExternal.js~Uint8Array",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Array",
     "access": null,
     "description": "",
     "builtinExternal": true
@@ -1231,12 +1261,11 @@
   {
     "__docId__": 67,
     "kind": "external",
-    "static": true,
-    "variation": null,
-    "name": "Uint8ClampedArray",
-    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8ClampedArray",
+    "name": "Int8Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int8Array",
     "memberof": "BuiltinExternal/ECMAScriptExternal.js",
-    "longname": "BuiltinExternal/ECMAScriptExternal.js~Uint8ClampedArray",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Int8Array",
     "access": null,
     "description": "",
     "builtinExternal": true
@@ -1244,12 +1273,11 @@
   {
     "__docId__": 68,
     "kind": "external",
-    "static": true,
-    "variation": null,
-    "name": "Int16Array",
-    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int16Array",
+    "name": "Uint8Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array",
     "memberof": "BuiltinExternal/ECMAScriptExternal.js",
-    "longname": "BuiltinExternal/ECMAScriptExternal.js~Int16Array",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Uint8Array",
     "access": null,
     "description": "",
     "builtinExternal": true
@@ -1257,12 +1285,11 @@
   {
     "__docId__": 69,
     "kind": "external",
-    "static": true,
-    "variation": null,
-    "name": "Uint16Array",
-    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint16Array",
+    "name": "Uint8ClampedArray",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8ClampedArray",
     "memberof": "BuiltinExternal/ECMAScriptExternal.js",
-    "longname": "BuiltinExternal/ECMAScriptExternal.js~Uint16Array",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Uint8ClampedArray",
     "access": null,
     "description": "",
     "builtinExternal": true
@@ -1270,12 +1297,11 @@
   {
     "__docId__": 70,
     "kind": "external",
-    "static": true,
-    "variation": null,
-    "name": "Int32Array",
-    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int32Array",
+    "name": "Int16Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int16Array",
     "memberof": "BuiltinExternal/ECMAScriptExternal.js",
-    "longname": "BuiltinExternal/ECMAScriptExternal.js~Int32Array",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Int16Array",
     "access": null,
     "description": "",
     "builtinExternal": true
@@ -1283,12 +1309,11 @@
   {
     "__docId__": 71,
     "kind": "external",
-    "static": true,
-    "variation": null,
-    "name": "Uint32Array",
-    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint32Array",
+    "name": "Uint16Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint16Array",
     "memberof": "BuiltinExternal/ECMAScriptExternal.js",
-    "longname": "BuiltinExternal/ECMAScriptExternal.js~Uint32Array",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Uint16Array",
     "access": null,
     "description": "",
     "builtinExternal": true
@@ -1296,12 +1321,11 @@
   {
     "__docId__": 72,
     "kind": "external",
-    "static": true,
-    "variation": null,
-    "name": "Float32Array",
-    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Float32Array",
+    "name": "Int32Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int32Array",
     "memberof": "BuiltinExternal/ECMAScriptExternal.js",
-    "longname": "BuiltinExternal/ECMAScriptExternal.js~Float32Array",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Int32Array",
     "access": null,
     "description": "",
     "builtinExternal": true
@@ -1309,12 +1333,11 @@
   {
     "__docId__": 73,
     "kind": "external",
-    "static": true,
-    "variation": null,
-    "name": "Float64Array",
-    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Float64Array",
+    "name": "Uint32Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint32Array",
     "memberof": "BuiltinExternal/ECMAScriptExternal.js",
-    "longname": "BuiltinExternal/ECMAScriptExternal.js~Float64Array",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Uint32Array",
     "access": null,
     "description": "",
     "builtinExternal": true
@@ -1322,12 +1345,11 @@
   {
     "__docId__": 74,
     "kind": "external",
-    "static": true,
-    "variation": null,
-    "name": "Map",
-    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map",
+    "name": "Float32Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Float32Array",
     "memberof": "BuiltinExternal/ECMAScriptExternal.js",
-    "longname": "BuiltinExternal/ECMAScriptExternal.js~Map",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Float32Array",
     "access": null,
     "description": "",
     "builtinExternal": true
@@ -1335,12 +1357,11 @@
   {
     "__docId__": 75,
     "kind": "external",
-    "static": true,
-    "variation": null,
-    "name": "Set",
-    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set",
+    "name": "Float64Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Float64Array",
     "memberof": "BuiltinExternal/ECMAScriptExternal.js",
-    "longname": "BuiltinExternal/ECMAScriptExternal.js~Set",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Float64Array",
     "access": null,
     "description": "",
     "builtinExternal": true
@@ -1348,12 +1369,11 @@
   {
     "__docId__": 76,
     "kind": "external",
-    "static": true,
-    "variation": null,
-    "name": "WeakMap",
-    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakMap",
+    "name": "Map",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map",
     "memberof": "BuiltinExternal/ECMAScriptExternal.js",
-    "longname": "BuiltinExternal/ECMAScriptExternal.js~WeakMap",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Map",
     "access": null,
     "description": "",
     "builtinExternal": true
@@ -1361,12 +1381,11 @@
   {
     "__docId__": 77,
     "kind": "external",
-    "static": true,
-    "variation": null,
-    "name": "WeakSet",
-    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakSet",
+    "name": "Set",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set",
     "memberof": "BuiltinExternal/ECMAScriptExternal.js",
-    "longname": "BuiltinExternal/ECMAScriptExternal.js~WeakSet",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Set",
     "access": null,
     "description": "",
     "builtinExternal": true
@@ -1374,12 +1393,11 @@
   {
     "__docId__": 78,
     "kind": "external",
-    "static": true,
-    "variation": null,
-    "name": "ArrayBuffer",
-    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer",
+    "name": "WeakMap",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakMap",
     "memberof": "BuiltinExternal/ECMAScriptExternal.js",
-    "longname": "BuiltinExternal/ECMAScriptExternal.js~ArrayBuffer",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~WeakMap",
     "access": null,
     "description": "",
     "builtinExternal": true
@@ -1387,12 +1405,11 @@
   {
     "__docId__": 79,
     "kind": "external",
-    "static": true,
-    "variation": null,
-    "name": "DataView",
-    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/DataView",
+    "name": "WeakSet",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakSet",
     "memberof": "BuiltinExternal/ECMAScriptExternal.js",
-    "longname": "BuiltinExternal/ECMAScriptExternal.js~DataView",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~WeakSet",
     "access": null,
     "description": "",
     "builtinExternal": true
@@ -1400,12 +1417,11 @@
   {
     "__docId__": 80,
     "kind": "external",
-    "static": true,
-    "variation": null,
-    "name": "JSON",
-    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON",
+    "name": "ArrayBuffer",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer",
     "memberof": "BuiltinExternal/ECMAScriptExternal.js",
-    "longname": "BuiltinExternal/ECMAScriptExternal.js~JSON",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~ArrayBuffer",
     "access": null,
     "description": "",
     "builtinExternal": true
@@ -1413,12 +1429,11 @@
   {
     "__docId__": 81,
     "kind": "external",
-    "static": true,
-    "variation": null,
-    "name": "Promise",
-    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise",
+    "name": "DataView",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/DataView",
     "memberof": "BuiltinExternal/ECMAScriptExternal.js",
-    "longname": "BuiltinExternal/ECMAScriptExternal.js~Promise",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~DataView",
     "access": null,
     "description": "",
     "builtinExternal": true
@@ -1426,12 +1441,11 @@
   {
     "__docId__": 82,
     "kind": "external",
-    "static": true,
-    "variation": null,
-    "name": "Generator",
-    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator",
+    "name": "JSON",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON",
     "memberof": "BuiltinExternal/ECMAScriptExternal.js",
-    "longname": "BuiltinExternal/ECMAScriptExternal.js~Generator",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~JSON",
     "access": null,
     "description": "",
     "builtinExternal": true
@@ -1439,12 +1453,11 @@
   {
     "__docId__": 83,
     "kind": "external",
-    "static": true,
-    "variation": null,
-    "name": "GeneratorFunction",
-    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/GeneratorFunction",
+    "name": "Promise",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise",
     "memberof": "BuiltinExternal/ECMAScriptExternal.js",
-    "longname": "BuiltinExternal/ECMAScriptExternal.js~GeneratorFunction",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Promise",
     "access": null,
     "description": "",
     "builtinExternal": true
@@ -1452,12 +1465,11 @@
   {
     "__docId__": 84,
     "kind": "external",
-    "static": true,
-    "variation": null,
-    "name": "Reflect",
-    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect",
+    "name": "Generator",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator",
     "memberof": "BuiltinExternal/ECMAScriptExternal.js",
-    "longname": "BuiltinExternal/ECMAScriptExternal.js~Reflect",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Generator",
     "access": null,
     "description": "",
     "builtinExternal": true
@@ -1465,12 +1477,23 @@
   {
     "__docId__": 85,
     "kind": "external",
-    "static": true,
-    "variation": null,
-    "name": "Proxy",
-    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy",
+    "name": "GeneratorFunction",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/GeneratorFunction",
     "memberof": "BuiltinExternal/ECMAScriptExternal.js",
-    "longname": "BuiltinExternal/ECMAScriptExternal.js~Proxy",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~GeneratorFunction",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 86,
+    "kind": "external",
+    "name": "Reflect",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Reflect",
     "access": null,
     "description": "",
     "builtinExternal": true
@@ -1478,38 +1501,24 @@
   {
     "__docId__": 87,
     "kind": "external",
+    "name": "Proxy",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
     "static": true,
-    "variation": null,
-    "name": "CanvasRenderingContext2D",
-    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D",
-    "memberof": "BuiltinExternal/WebAPIExternal.js",
-    "longname": "BuiltinExternal/WebAPIExternal.js~CanvasRenderingContext2D",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Proxy",
     "access": null,
     "description": "",
-    "builtinExternal": true
-  },
-  {
-    "__docId__": 88,
-    "kind": "external",
-    "static": true,
-    "variation": null,
-    "name": "DocumentFragment",
-    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/API/DocumentFragment",
-    "memberof": "BuiltinExternal/WebAPIExternal.js",
-    "longname": "BuiltinExternal/WebAPIExternal.js~DocumentFragment",
-    "access": null,
-    "description": "",
+    "lineNumber": 193,
     "builtinExternal": true
   },
   {
     "__docId__": 89,
     "kind": "external",
-    "static": true,
-    "variation": null,
-    "name": "Element",
-    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/API/Element",
+    "name": "CanvasRenderingContext2D",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D",
     "memberof": "BuiltinExternal/WebAPIExternal.js",
-    "longname": "BuiltinExternal/WebAPIExternal.js~Element",
+    "static": true,
+    "longname": "BuiltinExternal/WebAPIExternal.js~CanvasRenderingContext2D",
     "access": null,
     "description": "",
     "builtinExternal": true
@@ -1517,12 +1526,11 @@
   {
     "__docId__": 90,
     "kind": "external",
-    "static": true,
-    "variation": null,
-    "name": "Event",
-    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/API/Event",
+    "name": "DocumentFragment",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/API/DocumentFragment",
     "memberof": "BuiltinExternal/WebAPIExternal.js",
-    "longname": "BuiltinExternal/WebAPIExternal.js~Event",
+    "static": true,
+    "longname": "BuiltinExternal/WebAPIExternal.js~DocumentFragment",
     "access": null,
     "description": "",
     "builtinExternal": true
@@ -1530,12 +1538,11 @@
   {
     "__docId__": 91,
     "kind": "external",
-    "static": true,
-    "variation": null,
-    "name": "Node",
-    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/API/Node",
+    "name": "Element",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/API/Element",
     "memberof": "BuiltinExternal/WebAPIExternal.js",
-    "longname": "BuiltinExternal/WebAPIExternal.js~Node",
+    "static": true,
+    "longname": "BuiltinExternal/WebAPIExternal.js~Element",
     "access": null,
     "description": "",
     "builtinExternal": true
@@ -1543,12 +1550,11 @@
   {
     "__docId__": 92,
     "kind": "external",
-    "static": true,
-    "variation": null,
-    "name": "NodeList",
-    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/API/NodeList",
+    "name": "Event",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/API/Event",
     "memberof": "BuiltinExternal/WebAPIExternal.js",
-    "longname": "BuiltinExternal/WebAPIExternal.js~NodeList",
+    "static": true,
+    "longname": "BuiltinExternal/WebAPIExternal.js~Event",
     "access": null,
     "description": "",
     "builtinExternal": true
@@ -1556,12 +1562,11 @@
   {
     "__docId__": 93,
     "kind": "external",
-    "static": true,
-    "variation": null,
-    "name": "XMLHttpRequest",
-    "externalLink": "https://developer.mozilla.org/en/docs/Web/API/XMLHttpRequest",
+    "name": "Node",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/API/Node",
     "memberof": "BuiltinExternal/WebAPIExternal.js",
-    "longname": "BuiltinExternal/WebAPIExternal.js~XMLHttpRequest",
+    "static": true,
+    "longname": "BuiltinExternal/WebAPIExternal.js~Node",
     "access": null,
     "description": "",
     "builtinExternal": true
@@ -1569,14 +1574,38 @@
   {
     "__docId__": 94,
     "kind": "external",
+    "name": "NodeList",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/API/NodeList",
+    "memberof": "BuiltinExternal/WebAPIExternal.js",
     "static": true,
-    "variation": null,
+    "longname": "BuiltinExternal/WebAPIExternal.js~NodeList",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 95,
+    "kind": "external",
+    "name": "XMLHttpRequest",
+    "externalLink": "https://developer.mozilla.org/en/docs/Web/API/XMLHttpRequest",
+    "memberof": "BuiltinExternal/WebAPIExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/WebAPIExternal.js~XMLHttpRequest",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 96,
+    "kind": "external",
     "name": "AudioContext",
     "externalLink": "https://developer.mozilla.org/en/docs/Web/API/AudioContext",
     "memberof": "BuiltinExternal/WebAPIExternal.js",
+    "static": true,
     "longname": "BuiltinExternal/WebAPIExternal.js~AudioContext",
     "access": null,
     "description": "",
+    "lineNumber": 34,
     "builtinExternal": true
   }
 ]
