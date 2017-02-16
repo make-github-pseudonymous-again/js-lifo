@@ -4,10 +4,10 @@ or [npm](https://github.com/npm/npm).
 
 ### jspm
 ```terminal
-jspm install npm:aureooms-js-lifo
+jspm install npm:@aureooms/js-lifo
 ```
 
 ### npm
 ```terminal
-npm install aureooms-js-lifo --save
+npm install @aureooms/js-lifo --save
 ```

@@ -8,7 +8,7 @@ import 'babel-polyfill' ;
 
 Then
 ```js
-const lifo = require( 'aureooms-js-lifo' ) ;
+const lifo = require( '@aureooms/js-lifo' ) ;
 // or
-import lifo from 'aureooms-js-lifo' ;
+import lifo from '@aureooms/js-lifo' ;
 ```
