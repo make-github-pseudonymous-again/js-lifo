@@ -1,6 +1,6 @@
 import test from 'ava' ;
 
-import { realloc } from 'aureooms-js-array' ;
+import { realloc } from '@aureooms/js-array' ;
 
 import {
 	NodeStack ,
