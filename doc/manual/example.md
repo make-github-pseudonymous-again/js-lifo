@@ -1,3 +1,4 @@
+# Examples
 All data structures implemented in this package follow the following interface.
 
 ```js
