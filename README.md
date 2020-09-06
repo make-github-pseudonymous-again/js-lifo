@@ -1,4 +1,4 @@
-[@aureooms/js-lifo](http://aureooms.github.io/js-lifo)
+[@aureooms/js-lifo](https://aureooms.github.io/js-lifo)
 ==
 
 <img src="https://cdn.rawgit.com/aureooms/js-lifo/master/media/sketch.svg" width="864">
