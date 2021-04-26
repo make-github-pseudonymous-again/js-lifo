@@ -1,10 +1,10 @@
-[@aureooms/js-lifo](https://aureooms.github.io/js-lifo)
+[@aureooms/js-lifo](https://make-github-pseudonymous-again.github.io/js-lifo)
 ==
 
 <img src="https://cdn.rawgit.com/aureooms/js-lifo/master/media/sketch.svg" width="864">
 
 Last In, First Out data structures for JavaScript.
-See [docs](https://aureooms.github.io/js-lifo).
+See [docs](https://make-github-pseudonymous-again.github.io/js-lifo).
 Parent is [@aureooms/js-data-structures](https://github.com/aureooms/js-data-structures).
 
 ```js
@@ -28,5 +28,5 @@ queue.pop( ) ; // 1
 [![Code maintainability](https://img.shields.io/codeclimate/maintainability/aureooms/js-lifo.svg)](https://codeclimate.com/github/aureooms/js-lifo/trends/churn)
 [![Code coverage (cov)](https://img.shields.io/codecov/c/gh/aureooms/js-lifo/master.svg)](https://codecov.io/gh/aureooms/js-lifo)
 [![Code technical debt](https://img.shields.io/codeclimate/tech-debt/aureooms/js-lifo.svg)](https://codeclimate.com/github/aureooms/js-lifo/trends/technical_debt)
-[![Documentation](https://aureooms.github.io/js-lifo/badge.svg)](https://aureooms.github.io/js-lifo/source.html)
+[![Documentation](https://make-github-pseudonymous-again.github.io/js-lifo/badge.svg)](https://make-github-pseudonymous-again.github.io/js-lifo/source.html)
 [![Package size](https://img.shields.io/bundlephobia/minzip/@aureooms/js-lifo)](https://bundlephobia.com/result?p=@aureooms/js-lifo)
